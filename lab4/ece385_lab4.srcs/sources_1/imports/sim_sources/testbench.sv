@@ -53,6 +53,9 @@ end
 initial begin: TEST_VECTORS
     Run = 0;
     SW = 8'b11000101;       // LOAD INIT B VAL
+    
+    repeat (3) @(posedge Clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
+
 	Reset_Load_Clear = 1;		// Toggle Reset (use blocking operator), because we want to have this happen 'first'
 
 	repeat (3) @(posedge Clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
