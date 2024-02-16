@@ -34,7 +34,7 @@ module adder_unit (
     // ASSIGN
     genvar i;
     generate
-        for (i = 0; i < 8; i = i + 1)
+        for (i = 0; i < 9; i = i + 1)
         begin
             assign b_mux[i] = (b[i] ^ Sub); // INVERT B if Sub Operation
         end

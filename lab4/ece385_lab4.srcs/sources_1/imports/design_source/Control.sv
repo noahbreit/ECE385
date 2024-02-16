@@ -6,6 +6,10 @@ module control (
 	input  logic Run,
 	input  logic M,
 	
+	// DEBUG DEBUG
+	output logic [4:0] state,
+	// DEBUG DEBUG
+	
 	output logic Clr_Ld,
 	output logic Shift,
 	output logic Add,
@@ -17,6 +21,7 @@ module control (
     
     // ASSIGN
     assign Reset = Reset_Load_Clear;
+    assign state = curr_state;
     
 
 // Declare signals curr_state, next_state of type enum
@@ -62,18 +67,30 @@ module control (
 				Add <= 0;
 				Sub <= 0;
 			end
+			
+			s_sub7:
+			begin
+			     Clr_Ld <= 0;
+			     Shift <= 0;
+			     Add <= 0;
+			     Sub <= M;
+			end
 
 			default:  //default case, can also have default assignments for Ld_A and Ld_B before case
 			begin 
-                if ( curr_state & 4'h1 ) // CHECK IF ADD STATE
+                if ( curr_state & 5'b00001 ) // CHECK IF ADD STATE
                 begin
+                    Clr_Ld <= 0;
                     Shift <= 0;
                     Add <= M;
+                    Sub <= 0;
                 end
                 else                    // SHIFT STATE
                 begin
+                    Clr_Ld <= 0;
                     Shift <= 1;
                     Add <= 0;
+                    Sub <= 0;
                 end
 			end
 		endcase

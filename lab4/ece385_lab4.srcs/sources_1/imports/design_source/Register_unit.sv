@@ -23,7 +23,8 @@ module register_unit (
     
     
     // ASSIGN
-    assign Load = (M & (Add | Sub));
+    //assign Load = (M & (Add | Sub));
+    assign Load = (Add | Sub);
     assign Reset = (Reset_Load_Clear | Clr_Ld);
 
     reg_1 reg_X (

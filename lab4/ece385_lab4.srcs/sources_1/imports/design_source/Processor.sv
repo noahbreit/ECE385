@@ -11,6 +11,16 @@ module Processor (
 	input  logic        Run,
 	input  logic [7:0]  SW,       
 	
+	// DEBUG DEBUG 
+	output logic [8:0]  Adder_out_val,
+	output logic [4:0]  State_val,
+	output logic        Clr_Ld_val,
+	output logic        Shift_val,
+	output logic        Add_val,
+	output logic        Sub_val,
+	// DEBUG DEBUG
+	
+	output logic        Mval,    // DEBUG
 	output logic        Xval,    // DEBUG
 	output logic [7:0]  Aval,    // DEBUG
 	output logic [7:0]  Bval,    // DEBUG
@@ -43,6 +53,9 @@ module Processor (
 	logic [8:0] Adder_Ain;
 	logic [8:0] Adder_SWin;
 	logic [8:0] Adder_out;
+	
+	// DEBUG DEBUG
+	logic [4:0] state;
 	 
 	 
 //We can use the "assign" statement to do simple combinational logic
@@ -56,9 +69,19 @@ module Processor (
     assign Adder_SWin = {SW_S[7], SW_S};
     assign Adder_out  = {D_X, D_A};
     
+    // DEBUG DEBUG
+    assign Adder_out_val = Adder_out;
+    assign State_val = state;
+    assign Clr_ld_val = Clr_Ld;
+    assign Shift_val = Shift;
+    assign Add_val = Add;
+    assign Sub_val = Sub;
+    
     // HEX DISPLAY
-	assign Aval  = A;
-	assign Bval  = B;
+    assign Mval = M;
+    assign Xval = X;
+	assign Aval = A;
+	assign Bval = B;
 
 //Instantiation of modules here
 	register_unit reg_unit (
@@ -88,6 +111,10 @@ module Processor (
 		.Run        (Run_S),
 		.Clk        (Clk),
 		.M          (M),
+		
+		// DEBUG DEBUG
+		.state      (state),
+		// DEBUG DEBUG
 		
 		.Clr_Ld     (Clr_Ld),
 		.Shift      (Shift),

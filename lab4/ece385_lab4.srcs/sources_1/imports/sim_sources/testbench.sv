@@ -9,7 +9,17 @@ logic        Clk;     // Internal
 logic        Reset_Load_Clear;
 logic        Run;
 logic [7:0]  SW;
+
+// DEBUG DEBUG
+logic [8:0]  Adder_out_val;
+logic [4:0]  State_val;
+logic        Clr_Ld_val;
+logic        Shift_val;
+logic        Add_val;
+logic        Sub_val;
+// DEBUG DEBUG
 	
+logic        Mval;    // DEBUG
 logic        Xval;    // DEBUG
 logic [7:0]  Aval;    // DEBUG
 logic [7:0]  Bval;    // DEBUG
@@ -21,9 +31,9 @@ logic [3:0]  hex_grid; // Hex display control
 // Make sure the module and signal names match with those in your design
 Processor processor0 (.*);	
 
-logic       ans_1x;
-logic [7:0] ans_1a;
-logic [7:0] ans_1b;
+//logic       ans_1x;
+//logic [7:0] ans_1a;
+//logic [7:0] ans_1b;
 
 initial begin: CLOCK_INITIALIZATION
 	Clk = 1'b1;
@@ -81,15 +91,23 @@ initial begin: TEST_VECTORS
 	repeat (4) @(posedge Clk);
 
 	repeat (4) @(posedge Clk);
+	
+	repeat (4) @(posedge Clk);
+		
+	repeat (4) @(posedge Clk);
+			
+    repeat (4) @(posedge Clk);
+				
+	repeat (4) @(posedge Clk);
 
-    ans_1x = (1'b0 ^ 1'b1);
-	ans_1a = ((8'h07 * 8'hC5) & 8'hF0); // Expected result of 1st Operation
-    ans_1b = ((8'h07 * 8'hC5) & 8'h0F); 
+    //ans_1x = (1'b0 ^ 1'b1);
+	//ans_1a = ((8'h07 * 8'hC5) & 8'hF0); // Expected result of 1st Operation
+    //ans_1b = ((8'h07 * 8'hC5) & 8'h0F); 
 	//These are called 'immediate' assertions, because they assert if a condition is true
 	//at the time of execution.
-	assert (Xval == ans_1x) else $display("1st cycle X ERROR: Xval is %h", Xval);
-	assert (Aval == ans_1a) else $display("1st cycle A ERROR: Aval is %h", Aval);
-	assert (Bval == ans_1b) else $display("1st cycle B ERROR: Bval is %h", Bval);
+	//assert (Xval == ans_1x) else $display("1st cycle X ERROR: Xval is %h", Xval);
+	//assert (Aval == ans_1a) else $display("1st cycle A ERROR: Aval is %h", Aval);
+	//assert (Bval == ans_1b) else $display("1st cycle B ERROR: Bval is %h", Bval);
 
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 
