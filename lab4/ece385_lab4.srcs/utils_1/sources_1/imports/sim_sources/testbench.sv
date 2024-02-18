@@ -5,25 +5,24 @@ timeprecision 1ns;
 
 // These signals are internal because the processor will be 
 // instantiated as a submodule in testbench.
+logic        Clk;     // Internal
 logic        Reset_Load_Clear;
 logic        Run;
 logic [7:0]  SW;
 
 // DEBUG DEBUG
+logic [8:0]  Adder_out_val;
 logic [4:0]  State_val;
 logic        Clr_Ld_val;
 logic        Shift_val;
 logic        Add_val;
 logic        Sub_val;
-logic        Load_val;
 // DEBUG DEBUG
 	
 logic        Mval;    // DEBUG
 logic        Xval;    // DEBUG
-logic [8:0]  Adder_out_val;
 logic [7:0]  Aval;    // DEBUG
 logic [7:0]  Bval;    // DEBUG
-logic        Clk;     // Internal
 logic [7:0]  hex_seg; // Hex display control
 logic [3:0]  hex_grid; // Hex display control
 
@@ -63,8 +62,7 @@ end
 // happens first. 
 initial begin: TEST_VECTORS
     Run = 0;
-    SW = 8'hC5;               // LOAD INIT B VAL -59
-//    SW = 8'h3B;             // LOAD INIT B VAL +59
+    SW = 8'b11000101;       // LOAD INIT B VAL
     
     repeat (3) @(posedge Clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
 
@@ -76,8 +74,7 @@ initial begin: TEST_VECTORS
 
 	@(posedge Clk);
 	
-//	SW <= 8'h07;      // LOAD INIT A VAL 7
-	SW <= 8'hF9;            // LOAD INIT A VAL -7
+	SW <= 8'b00000111;      // LOAD INIT A VAL
 
 	repeat (3) @(posedge Clk); // Wait 4 cycles to let debouncer detect button
 
@@ -98,12 +95,6 @@ initial begin: TEST_VECTORS
 	repeat (4) @(posedge Clk);
 		
 	repeat (4) @(posedge Clk);
-			
-    repeat (4) @(posedge Clk);
-				
-	repeat (4) @(posedge Clk);
-
-    repeat (4) @(posedge Clk);
 			
     repeat (4) @(posedge Clk);
 				

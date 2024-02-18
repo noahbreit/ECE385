@@ -21,7 +21,6 @@
 
 
 module adder_unit (
-    input  logic        Clk,
     input  logic        Sub,
     input  logic  [8:0] a, 
     input  logic  [8:0] b,
@@ -31,8 +30,6 @@ module adder_unit (
     // INTERNAL
     logic [8:0] b_mux;
     logic       cin;
-    
-//    logic [8:0] s_q;
     
     // ASSIGN
     genvar i;
@@ -54,7 +51,7 @@ module adder_unit (
     
 //    always_ff @(posedge Clk)
 //    begin
-//            s <= s_q;   // REMOVE IF NOT USED
+//            ;   // REMOVE IF NOT USED
 //    end
         
 endmodule

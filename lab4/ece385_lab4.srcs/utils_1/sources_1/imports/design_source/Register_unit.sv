@@ -3,10 +3,9 @@ module register_unit (
 	input  logic       Reset_Load_Clear,
 	input  logic       Clr_Ld,
 	input  logic       Shift,
-//	input  logic       Add,
-//	input  logic       Sub,
-//  input  logic       M,
-    input  logic       Load,
+	input  logic       Add,
+	input  logic       Sub,
+	input  logic       M,
 
     input  logic       D_X,             
 	input  logic [7:0] D_A,
@@ -17,6 +16,7 @@ module register_unit (
 	output logic [7:0] B
 );
     // INTERNAL
+    logic Load;
     logic Reset;
     logic X_SH;
     logic A_SH;
@@ -24,14 +24,14 @@ module register_unit (
     
     // ASSIGN
     //assign Load = (M & (Add | Sub));
-    assign Reset = (Reset_Load_Clear | Clr_Ld); // TODO -- NEED THIS FUNCTIONALITY. BUT SOURCE OF BUG?
+    assign Load = (Add | Sub);
+    assign Reset = (Reset_Load_Clear | Clr_Ld);
 
     reg_1 reg_X (
         .Clk            (Clk), 
 		.Reset          (Reset),
-//        .Reset          (1'b0),   // PULL LOW
 
-		.Shift_In       (D_X),
+		.Shift_In       (1'b0),   // PULL LOW
 		.Load           (Load), 
 		.Shift_En       (Shift),
 		.D              (D_X),
@@ -43,7 +43,6 @@ module register_unit (
     reg_8 reg_A (
 		.Clk            (Clk), 
 		.Reset          (Reset),
-//        .Reset          (1'b0),   // PULL LOW
 
 		.Shift_In       (X_SH), 
 		.Load           (Load), 
