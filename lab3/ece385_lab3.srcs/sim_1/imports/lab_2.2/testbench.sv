@@ -5,34 +5,39 @@ timeprecision 1ns;
 
 // These signals are internal because the processor will be 
 // instantiated as a submodule in testbench.
-logic 		clk;
-logic		reset;
-logic 		run_i; // _i stands for input
-logic [15:0] sw_i;
+logic        Reset_Load_Clear;
+logic        Run;
+logic [7:0]  SW;
 
 // DEBUG DEBUG
-logic [15:0] out_val;
+logic [4:0]  State_val;
+logic        Clr_Ld_val;
+logic        Shift_val;
+logic        Add_val;
+logic        Sub_val;
+logic        Load_val;
 // DEBUG DEBUG
+	
+logic        Mval;    // DEBUG
+logic        Xval;    // DEBUG
+logic [8:0]  Adder_out_val;
+logic [7:0]  Aval;    // DEBUG
+logic [7:0]  Bval;    // DEBUG
+logic        Clk;     // Internal
+logic [7:0]  hex_seg; // Hex display control
+logic [3:0]  hex_grid; // Hex display control
 
-logic 		sign_led;
-logic [7:0]  hex_seg_a;
-logic [3:0]  hex_grid_a;
-logic [7:0]  hex_seg_b;
-logic [3:0]  hex_grid_b;
-
-
-// To store expected results
-logic [15:0] ans_0;
-logic [15:0] ans_1;
-logic [15:0] ans_2;
 
 // Instantiating the DUT (Device Under Test)
 // Make sure the module and signal names match with those in your design
-adder_toplevel adder_toplevel (.*);
+Processor processor0 (.*);	
 
+//logic       ans_1x;
+//logic [7:0] ans_1a;
+//logic [7:0] ans_1b;
 
 initial begin: CLOCK_INITIALIZATION
-	clk = 1'b1;
+	Clk = 1'b1;
 end 
 
 // Toggle the clock
@@ -43,7 +48,7 @@ end
 // this is important because we need to know what the time scale is for how long to run
 // the simulation
 always begin : CLOCK_GENERATION
-	#1 clk = ~clk;
+	#1 Clk = ~Clk;
 end
 
 // Testing begins here
@@ -57,73 +62,62 @@ end
 // same simulation timestep. The exception is for reset, which we want to make sure
 // happens first. 
 initial begin: TEST_VECTORS
-    ans_1 = (16'h2 + 16'h2); // Expected result of 1st cycle
-	reset = 1;		// Toggle Reset (use blocking operator), because we want to have this happen 'first'
-	
-	run_i <= 0;     
-	
-	sw_i <= 16'h0002;          // LOAD INITIAL VALUE
+    Run = 0;
+    SW = 8'hC5;               // LOAD INIT B VAL -59
+//    SW = 8'h3B;             // LOAD INIT B VAL +59
+    
+    repeat (3) @(posedge Clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
 
-	repeat (4) @(posedge clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
+	Reset_Load_Clear = 1;		// Toggle Reset (use blocking operator), because we want to have this happen 'first'
 
-	reset <= 0;
+	repeat (3) @(posedge Clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
 
-	@(posedge clk);
-	
-	run_i <= 1;	// Toggle run_i
+	Reset_Load_Clear <= 0;
 
-	repeat (4) @(posedge clk); // Wait 4 cycles to let debouncer detect button
+	@(posedge Clk);
 	
-	run_i <= 0;
-	
-	repeat (4) @(posedge clk); // Wait 4 cycles
-	
-	run_i <= 1; // Toggle run_i
+//	SW <= 8'h07;      // LOAD INIT A VAL 7
+	SW <= 8'hF9;            // LOAD INIT A VAL -7
 
-	repeat (4) @(posedge clk);
-	
-	run_i <= 0; // Toggle run_i;
-	
-	repeat (12) @(posedge clk);
-	
-	assert (out_val == ans_0) else $display("1st cycle A ERROR: out_val is %h", out_val);
-	
-	// reset = 1
-	
-	ans_1 = (16'h4 + 16'hFFFB); // Expected result of 1st cycle
-	
-	run_i <= 0;     
-	
-	sw_i <= 16'hFFFB;          // LOAD INITIAL VALUE
+	repeat (3) @(posedge Clk); // Wait 4 cycles to let debouncer detect button
 
-	repeat (4) @(posedge clk); //each @(posedge Clk) here means to wait for 1 clock edge, so this waits for 3 clock edges
+    Run <= 1;
+    
+	@(posedge Clk);
+	
+	repeat (3) @(posedge Clk);
+	
+	Run <= 0;
 
-	// reset <= 0;
+	repeat (4) @(posedge Clk);
+	
+	repeat (4) @(posedge Clk);
 
-	@(posedge clk);
+	repeat (4) @(posedge Clk);
 	
-	run_i <= 1;	// Toggle run_i
-
-	repeat (4) @(posedge clk); // Wait 4 cycles to let debouncer detect button
-	
-	run_i <= 0;
-	
-	repeat (4) @(posedge clk); // Wait 4 cycles
-	
-	run_i <= 1; // Toggle run_i
-
-	repeat (4) @(posedge clk);
-	
-	run_i <= 0; // Toggle run_i;
-	
-	repeat (12) @(posedge clk);
+	repeat (4) @(posedge Clk);
 		
+	repeat (4) @(posedge Clk);
+			
+    repeat (4) @(posedge Clk);
+				
+	repeat (4) @(posedge Clk);
+
+    repeat (4) @(posedge Clk);
+			
+    repeat (4) @(posedge Clk);
+				
+	repeat (4) @(posedge Clk);
+
+    //ans_1x = (1'b0 ^ 1'b1);
+	//ans_1a = ((8'h07 * 8'hC5) & 8'hF0); // Expected result of 1st Operation
+    //ans_1b = ((8'h07 * 8'hC5) & 8'h0F); 
 	//These are called 'immediate' assertions, because they assert if a condition is true
 	//at the time of execution.
-	
-	assert (out_val == ans) else $display("1st cycle A ERROR: out_val is %h", out_val);
-	assert (out_val == ans) else $display("1st cycle A ERROR: out_val is %h", out_val);
-	
+	//assert (Xval == ans_1x) else $display("1st cycle X ERROR: Xval is %h", Xval);
+	//assert (Aval == ans_1a) else $display("1st cycle A ERROR: Aval is %h", Aval);
+	//assert (Bval == ans_1b) else $display("1st cycle B ERROR: Bval is %h", Bval);
+
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 
 end
