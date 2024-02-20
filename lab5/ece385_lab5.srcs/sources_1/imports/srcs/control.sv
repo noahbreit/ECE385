@@ -149,14 +149,15 @@ module control (
 				begin
 					mem_mem_ena = 1'b1;
 					ld_mdr = 1'b1;
+					; // TODO -- REPLACEMENT FOR 'R' Signal
 				end
 			s_35 : 
 				begin 
 					gate_mdr = 1'b1;
 					ld_ir = 1'b1;
 				end
-			pause_ir1: ld_led = 1'b1; 
-			pause_ir2: ld_led = 1'b1; 
+			pause_ir1: ld_led = 1'b1;    // TODO -- WHAT ARE THESE STATES??
+			pause_ir2: ld_led = 1'b1;    // TODO -- WHAT ARE THESE STATES??
 			s_32 : 
 				ld_ben = 1'b1;
 			s_01 : 
@@ -221,9 +222,9 @@ module control (
 					ld_mar = 1'b1;
 				end
 			s_25_1 : 
-				mem_mem_ena = 1'b1;
+				mem_mem_ena = 1'b1;     // TODO -- CONTINUE REPLACEMENT FOR 'R' SIGNAL
 			s_25_2 : 
-				mem_mem_ena = 1'b1;
+				mem_mem_ena = 1'b1;     // TODO -- CONTINUE 'R' SIGNAL
 			s_25_3 : 
 				begin 
 					mem_mem_ena = 1'b1;
@@ -252,12 +253,12 @@ module control (
 				end 
 			s_16_1 : 
 			     begin
-			        mem_mem_ena = 1'b1;
+			        mem_mem_ena = 1'b1;  // TODO -- CONTINUE 'R' SIGNAL
 					mem_wr_ena = 1'b1;
 				 end
 			s_16_2 :
 			     begin
-			        mem_mem_ena = 1'b1;
+			        mem_mem_ena = 1'b1;  // TODO -- CONTINUE 'R' SIGNAL
 					mem_wr_ena = 1'b1;
 				 end
 			s_16_3 :
@@ -266,6 +267,11 @@ module control (
 					mem_wr_ena = 1'b1;	
 				end
 			// you need to finish the rest of states..... 
+			// TODO -- MISSING 
+			// s_15
+			// s_28
+			// s_30
+			// s_14
 
 			default : ;
 		endcase
@@ -352,8 +358,10 @@ module control (
 			s_16_3 :
 				state_nxt = s_18;
 			// you need to finish the rest of states.....
+			// TODO
 			
-			default :;
+			default :
+			     ;
 		endcase
 	end
 	

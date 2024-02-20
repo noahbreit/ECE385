@@ -19,6 +19,8 @@
 //    Revised 12-29-2023
 //------------------------------------------------------------------------------
 
+// ## NOAH NOTES :: TODO FOR WEEK ONE DEMO ##
+
 module cpu (
     input   logic        clk,
     input   logic        reset,
@@ -88,7 +90,7 @@ load_reg #(.DATA_WIDTH(16)) ir_reg (
     .reset  (reset),
 
     .load   (ld_ir),
-    .data_i (),
+    .data_i (),             // TODO -- SET IR_REG INPUT
 
     .data_q (ir)
 );
@@ -98,7 +100,7 @@ load_reg #(.DATA_WIDTH(16)) pc_reg (
     .reset(reset),
 
     .load(ld_pc),
-    .data_i(),
+    .data_i(),              // TODO -- SET IR_REG INPUT
 
     .data_q(pc)
 );
