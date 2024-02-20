@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02/04/2024 02:25:30 PM
+// Create Date: 02/08/2024 02:54:00 PM
 // Design Name: 
-// Module Name: full_adder
+// Module Name: fourwide_2x1_mux
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -20,15 +20,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module full_adder(
-    input logic cin,
-    input logic a,
-    input logic b,
-    output logic s,
-    output logic cout
+module fourwide_2x1_mux(
+    input logic     [3:0]   a,
+    input logic     [3:0]   b,
+    input logic             sel,
+    output logic    [3:0]   z      
     );
     
-    assign s = ((a^b)^cin);
-    assign cout = ((a&b)|(cin&a)|(cin&b));
-    
+    assign z = (sel) ? (b) : (a);
 endmodule

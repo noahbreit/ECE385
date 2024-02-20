@@ -11,6 +11,10 @@ module adder_toplevel   (
 	input  logic 		run_i, // _i stands for input
 	input  logic [15:0] sw_i,
 
+    // DEBUG DEBUG
+    output logic [16:0] out_val,
+    // DEBUG DEBUG
+    
 	output logic 		sign_led,
 	output logic [7:0]  hex_seg_a,
 	output logic [3:0]  hex_grid_a,
@@ -23,6 +27,10 @@ module adder_toplevel   (
 	//Out;
 	logic [16:0] s;
 	logic [16:0] out;
+	
+	// DEBUG
+	assign out_val = out;
+	// DEBUG
 	
 	// Synchronized inputs (denoted by _s in naming convention)
 	logic run_s;
@@ -58,21 +66,21 @@ module adder_toplevel   (
 		.s   	(s[15:0]) 
 	);
 	
-	// lookahead_adder adder_la (		
-    //	.a	 	(sw[15:0]), 
-    //	.b	 	(out[15:0]), 
-    //	.cin 	(1'b0), 
-    //	.cout	(s[16]), 
-    //	.s   	(s[15:0]) 
-	// );
+//	 lookahead_adder adder_la (		
+//    	.a	 	(sw_s), 
+//    	.b	 	(out[15:0]), 
+//    	.cin 	(1'b0), 
+//    	.cout	(s[16]), 
+//    	.s   	(s[15:0]) 
+//	 );
 	
-	// select_adder adder_sa (	
-	// 	.a	 	(sw[15:0]), 
-	// 	.b	 	(out[15:0]), 
-	// 	.cin 	(1'b0), 
-	// 	.cout	(s[16]), 
-	// 	.s   	(s[15:0]) 
-	// );
+//	 select_adder adder_sa (	
+//	 	.a	 	(sw_s), 
+//	 	.b	 	(out[15:0]), 
+//	 	.cin 	(1'b0), 
+//	 	.cout	(s[16]), 
+//	 	.s   	(s[15:0]) 
+//	 );
 
 
 	// Hex units that display contents of sw and sum register in hex
