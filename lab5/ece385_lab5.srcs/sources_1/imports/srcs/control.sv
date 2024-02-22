@@ -268,10 +268,25 @@ module control (
 				end
 			// you need to finish the rest of states..... 
 			// TODO -- MISSING 
+			// ## LEFT
 			// s_15
 			// s_28
 			// s_30
 			// s_14
+			// s_2
+			// ##
+			
+			// ## MID
+			// s_10
+			// s_24 -- 'R'
+			// s_11
+			// s_29 -- 'R'
+			// s_31
+			// ##
+			
+			// ## RIGHT
+			// s_20
+			// s_3
 
 			default : ;
 		endcase

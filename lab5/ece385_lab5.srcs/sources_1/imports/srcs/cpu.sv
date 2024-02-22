@@ -69,6 +69,7 @@ logic [15:0] ir;
 logic [15:0] pc;
 logic ben;
 
+logic [15:0] data_bus;
 
 assign mem_addr = mar;
 assign mem_wdata = mdr;
@@ -84,6 +85,7 @@ control cpu_control (
 
 assign led_o = ir;
 assign hex_display_debug = ir;
+
 
 load_reg #(.DATA_WIDTH(16)) ir_reg (
     .clk    (clk),
@@ -105,6 +107,24 @@ load_reg #(.DATA_WIDTH(16)) pc_reg (
     .data_q(pc)
 );
 
+cpu_bus lc3_bus (
+    .gate_pc        (gate_pc),
+    .gate_mdr       (gate_mdr),
+    .gate_alu       (gate_alu), 
+    .gate_marmux    (gate_marmux),
+    
+    .pc_in          (),     // TODO
+    .mdr_in         (),     // TODO
+    .alu_in         (),     // TODO
+    .marmux_in      (),     // TODO
+    
+    .out            (data_bus)
+);
 
+// # NOTE # INTERAL PC LOGIC
+always_ff @(posedge clk)
+begin
+    
+end
 
 endmodule
