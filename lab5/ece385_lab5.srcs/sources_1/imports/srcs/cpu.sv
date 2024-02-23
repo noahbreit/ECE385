@@ -31,11 +31,11 @@ module cpu (
     output  logic [15:0] led_o,
     
     // DEBUG DEBUG
-    output  logic [4:0]  state_out,
-    output  logic [3:0]  ctrl_out,
-    output  logic [15:0] pc_out,
-    output  logic [15:0] ir_out,
-    output  logic [15:0] data_bus_out,
+//    output  logic [4:0]  state_out,
+//    output  logic [3:0]  ctrl_out,
+//    output  logic [15:0] pc_out,
+//    output  logic [15:0] ir_out,
+//    output  logic [15:0] data_bus_out,
     // DEBUG DEBUG
    
     input   logic [15:0] mem_rdata,
@@ -154,8 +154,8 @@ cpu_bus lc3_bus (
     .alu_in         (),     // TODO
     .marmux_in      (),     // TODO
     
-    .out            (data_bus),
-    .ctrl_out       (ctrl_out)
+    //    .ctrl_out       (ctrl_out)
+    .out            (data_bus)
 );
 
 // # NOTE # INTERAL PC LOGIC
