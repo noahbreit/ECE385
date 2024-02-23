@@ -142,7 +142,7 @@ module control (
 				begin 
 					gate_pc = 1'b1;
 					ld_mar = 1'b1;
-					pcmux = 1'b0;
+					pcmux = 1'b0;  // IS THIS RIGHT??
 					ld_pc = 1'b1;
 				end
 			s_33_1, s_33_2, s_33_3 : //you may have to think about this as well to adapt to ram with wait-states

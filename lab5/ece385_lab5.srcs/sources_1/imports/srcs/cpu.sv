@@ -69,7 +69,11 @@ logic [15:0] ir;
 logic [15:0] pc;
 logic ben;
 
+// DEMO1 
 logic [15:0] data_bus;
+logic [15:0] pcmux_out;
+
+// 
 
 assign mem_addr = mar;
 assign mem_wdata = mdr;
@@ -102,9 +106,29 @@ load_reg #(.DATA_WIDTH(16)) pc_reg (
     .reset(reset),
 
     .load(ld_pc),
-    .data_i(),              // TODO -- SET IR_REG INPUT
+    .data_i(pcmux_out),              // TODO -- SET IR_REG INPUT
 
     .data_q(pc)
+);
+
+load_reg #(.DATA_WIDTH(16)) mdr_reg (
+    .clk(clk),
+    .reset(reset),
+
+    .load(ld_mdr),
+    .data_i(mdr_in),              // TODO -- SET MDR_REG INPUT
+
+    .data_q(mdr)
+);
+
+load_reg #(.DATA_WIDTH(16)) mar_reg (
+    .clk(clk),
+    .reset(reset),
+
+    .load(ld_mar),
+    .data_i(data_bus),              // TODO -- SET MDR_REG INPUT
+
+    .data_q(mar)
 );
 
 cpu_bus lc3_bus (
@@ -113,8 +137,8 @@ cpu_bus lc3_bus (
     .gate_alu       (gate_alu), 
     .gate_marmux    (gate_marmux),
     
-    .pc_in          (),     // TODO
-    .mdr_in         (),     // TODO
+    .pc_in          (pc),   
+    .mdr_in         (mdr),
     .alu_in         (),     // TODO
     .marmux_in      (),     // TODO
     
@@ -122,9 +146,30 @@ cpu_bus lc3_bus (
 );
 
 // # NOTE # INTERAL PC LOGIC
-always_ff @(posedge clk)
+always_comb
 begin
-    
+    case(pcmux)     // TODO ENUMERATE!!
+        00:
+            pcmux_out = pc + 1;
+//        01:       // TODO
+//            ;
+//        10:       // TODO
+//            ;
+        default:
+            ;
+    endcase
 end
+
+// # NOTE # INTERNAL MIO LOGIC
+always_comb
+begin
+    case(mio_en)    // TODO ENUMERATE!!
+        0:
+            mdr_in = data_bus;
+        1:
+            mdr_in = mem_rdata;
+    endcase
+end
+
 
 endmodule
