@@ -321,7 +321,8 @@ module control (
 			s_33_3 : 
 				state_nxt = s_35;
 			s_35 : 
-				state_nxt = s_32;
+//				state_nxt = s_32;
+				state_nxt = pause_ir1;
 			// pause_ir1 and pause_ir2 are only for week 1 such that tas can see 
 			// the values in ir.
 			pause_ir1 : 
