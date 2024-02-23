@@ -151,22 +151,23 @@ module control (
 				begin 
 					gate_pc = 1'b1;
 					ld_mar = 1'b1;
-					pcmux = 1'b0;  // IS THIS RIGHT??
+					pcmux = 2'b0;
 					ld_pc = 1'b1;
 				end
 			s_33_1, s_33_2, s_33_3 : //you may have to think about this as well to adapt to ram with wait-states
 				begin
 					mem_mem_ena = 1'b1;
+//					mio_en = 1'b1;     // FIX??
 					ld_mdr = 1'b1;
-					; // TODO -- REPLACEMENT FOR 'R' Signal
+					;
 				end
 			s_35 : 
 				begin 
 					gate_mdr = 1'b1;
 					ld_ir = 1'b1;
 				end
-			pause_ir1: ld_led = 1'b1;    // TODO -- WHAT ARE THESE STATES??
-			pause_ir2: ld_led = 1'b1;    // TODO -- WHAT ARE THESE STATES??
+			pause_ir1: ld_led = 1'b1;
+			pause_ir2: ld_led = 1'b1;
 			s_32 : 
 				ld_ben = 1'b1;
 			s_01 : 

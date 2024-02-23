@@ -13,12 +13,12 @@ logic        continue_i;
 logic [15:0] sw_i;
 
 // DEBUG DEBUG -- cpu
-//logic [15:0] data_bus_out;
+logic [15:0] data_bus_out;
 //logic [15:0] led_o;
-//logic [15:0] pc_out;
-//logic [15:0] ir_out;
-//logic [4:0]  state_out;
-//logic [3:0]  ctrl_out;
+logic [15:0] pc_out;
+logic [15:0] ir_out;
+logic [4:0]  state_out;
+logic [3:0]  ctrl_out;
 //logic [15:0] hex_display_debug;
 
 //logic [15:0] mem_rdata;
@@ -80,28 +80,27 @@ initial begin: TEST_VECTORS
     reset = 0;
     run_i = 0;
     continue_i = 0;
-    sw_i = 16'h0;
+    sw_i = 16'hFFFF;
     
-    repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     
     reset <= 1;
     
     repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
     
     reset <= 0;
     
-    repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     
     run_i <= 1;
     
     repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
     
     run_i <= 0;
     
+    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)

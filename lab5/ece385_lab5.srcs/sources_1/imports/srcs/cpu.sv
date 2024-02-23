@@ -162,7 +162,7 @@ cpu_bus lc3_bus (
 always_comb
 begin
     case(pcmux)     // TODO ENUMERATE!!
-        00:
+        2'b00:
             pcmux_out = pc + 1;
         default:
             pcmux_out = pc;
@@ -173,10 +173,10 @@ end
 always_comb
 begin
     case(mio_en)    // TODO ENUMERATE!!
-        0:
-            mdr_in = data_bus;
-        1:
+        1'b0:
             mdr_in = mem_rdata;
+        1'b1:
+            mdr_in = data_bus;
     endcase
 end
 

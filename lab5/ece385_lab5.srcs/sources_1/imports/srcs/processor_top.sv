@@ -7,6 +7,20 @@ module processor_top (
 	input  logic 		run_i, 
 	input  logic 		continue_i,
 	input  logic [15:0] sw_i,
+	
+	// DEBUG DEBUG
+    output  logic [4:0]  state_out,
+    output  logic [3:0]  ctrl_out,
+    output  logic [15:0] pc_out,
+    output  logic [15:0] ir_out,
+    output  logic [15:0] data_bus_out,
+    
+    output logic [15:0] sram_rdata,
+    output logic [15:0] sram_wdata,
+    output logic [15:0] sram_addr,
+    output logic sram_mem_ena,
+    output logic sram_wr_ena,
+    // DEBUG DEBUG
 
 	output logic [15:0] led_o,
 	output logic [7:0]  hex_seg_left,
@@ -26,6 +40,11 @@ logic [15:0] sram_addr;
 logic sram_mem_ena;
 logic sram_wr_ena;
 
+assign sram_rdata_out = sram_rdata;
+assign sram_wdata_out = sram_wdata;
+assign sram_addr_out = sram_addr;
+assign sram_mem_ena_out = sram_mem_ena;
+assign sram_wr_ena_out = sram_wr_ena;
 
 sync_debounce button_sync [2:0] (
 	.clk	(clk), 
@@ -48,6 +67,14 @@ slc3 slc3 (
 	.run_i			(run_s), 
 	.continue_i		(continue_s),
 	.sw_i			(sw_s),
+	
+	// DEBUG DEBUG
+    .state_out          (state_out),
+    .ctrl_out           (ctrl_out),
+    .pc_out             (pc_out),
+    .ir_out             (ir_out),
+    .data_bus_out       (data_bus_out),
+    // DEBUG DEBUG
 
 	.led_o			(led_o),
 	.hex_seg_o		(hex_seg_left),
