@@ -29,6 +29,13 @@ module cpu (
     input   logic        continue_i,
     output  logic [15:0] hex_display_debug,
     output  logic [15:0] led_o,
+    
+    // DEBUG DEBUG
+    output  logic [15:0] data_bus,
+    output  logic [4:0]  state_out,
+    output  logic [15:0] pc,
+    output  logic [15:0] ir,
+    // DEBUG DEBUG
    
     input   logic [15:0] mem_rdata,
     output  logic [15:0] mem_wdata,
@@ -65,14 +72,13 @@ logic       mio_en;
 logic [15:0] mdr_in;
 logic [15:0] mar; 
 logic [15:0] mdr;
-logic [15:0] ir;
-logic [15:0] pc;
+//logic [15:0] ir;
+//logic [15:0] pc;
 logic ben;
 
 // DEMO1 
-logic [15:0] data_bus;
+//logic [15:0] data_bus;
 logic [15:0] pcmux_out;
-
 // 
 
 assign mem_addr = mar;
@@ -96,7 +102,7 @@ load_reg #(.DATA_WIDTH(16)) ir_reg (
     .reset  (reset),
 
     .load   (ld_ir),
-    .data_i (),             // TODO -- SET IR_REG INPUT
+    .data_i (data_bus),
 
     .data_q (ir)
 );
@@ -106,7 +112,7 @@ load_reg #(.DATA_WIDTH(16)) pc_reg (
     .reset(reset),
 
     .load(ld_pc),
-    .data_i(pcmux_out),              // TODO -- SET IR_REG INPUT
+    .data_i(pcmux_out),
 
     .data_q(pc)
 );
@@ -116,8 +122,8 @@ load_reg #(.DATA_WIDTH(16)) mdr_reg (
     .reset(reset),
 
     .load(ld_mdr),
-    .data_i(mdr_in),              // TODO -- SET MDR_REG INPUT
-
+    .data_i(mdr_in),
+    
     .data_q(mdr)
 );
 
@@ -126,7 +132,7 @@ load_reg #(.DATA_WIDTH(16)) mar_reg (
     .reset(reset),
 
     .load(ld_mar),
-    .data_i(data_bus),              // TODO -- SET MDR_REG INPUT
+    .data_i(data_bus),
 
     .data_q(mar)
 );
@@ -151,12 +157,8 @@ begin
     case(pcmux)     // TODO ENUMERATE!!
         00:
             pcmux_out = pc + 1;
-//        01:       // TODO
-//            ;
-//        10:       // TODO
-//            ;
         default:
-            ;
+            pcmux_out = pc;
     endcase
 end
 

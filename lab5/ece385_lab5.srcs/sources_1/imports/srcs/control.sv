@@ -29,6 +29,11 @@ module control (
 
 	input logic 		continue_i,
 	input logic 		run_i,
+	
+	// DEBUG DEBUG
+	output [4:0] state_out,
+	//output [4:0] state_nxt_out,
+	// DEBUG DEBUG
 		
 	output logic        ld_mar,
 	output logic		ld_mdr,
@@ -90,6 +95,10 @@ module control (
 		s_16_3
 	} state, state_nxt;   // Internal state logic
 
+    // DEBUG DEBUG
+    assign state_out = state;
+
+    // DEBUG DEBUG
 
 	always_ff @ (posedge clk)
 	begin
