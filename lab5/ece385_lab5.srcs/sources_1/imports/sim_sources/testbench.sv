@@ -10,41 +10,46 @@ logic        reset;
 
 logic        run_i;
 logic        continue_i;
-logic [15:0] hex_display_debug;
+logic [15:0] sw_i;
+
+// DEBUG DEBUG -- cpu
+//logic [15:0] data_bus_out;
+//logic [15:0] led_o;
+//logic [15:0] pc_out;
+//logic [15:0] ir_out;
+//logic [4:0]  state_out;
+//logic [3:0]  ctrl_out;
+//logic [15:0] hex_display_debug;
+
+//logic [15:0] mem_rdata;
+//logic [15:0] mem_wdata;
+//logic [15:0] mem_addr;
+//logic        mem_mem_ena;
+//logic        mem_wr_ena;
+// DEBUG DEBUG
+
+// DEBUG DEBUG -- processor_top
 logic [15:0] led_o;
 
-// DEBUG DEBUG
-logic [15:0] data_bus;
-logic [15:0] pc;
-logic [15:0] ir;
-logic [4:0]  state_out;
+logic [15:0] sram_rdata;
+logic [15:0] sram_wdata;
+logic [15:0] sram_addr;
+logic sram_mem_ena;
+logic sram_wr_ena;
+
+logic [7:0]  hex_seg_left;
+logic [3:0]  hex_grid_left;
+logic [7:0]  hex_seg_right;
+logic [3:0]  hex_grid_right;
 // DEBUG DEBUG
 
-logic [15:0] mem_rdata;
-logic [15:0] mem_wdata;
-logic [15:0] mem_addr;
-logic        mem_mem_ena;
-logic        mem_wr_ena;
 
 
 // Instantiating the DUT (Device Under Test)
 // Make sure the module and signal names match with those in your design
-cpu test_cpu (
-    .clk        (clk),
-    .reset      (reset),
-    
-    .run_i      (run_i),
-    .continue_i (continue_i),
-    
-    .data_bus   (data_bus),
-    .pc         (pc),
-    .ir         (ir),
-    .state_out  (state_out)
-);	
+//cpu test_cpu(.*);
+processor_top test_processor(.*);
 
-//logic       ans_1x;
-//logic [7:0] ans_1a;
-//logic [7:0] ans_1b;
 
 initial begin: CLOCK_INITIALIZATION
 	clk = 1'b1;
@@ -75,11 +80,24 @@ initial begin: TEST_VECTORS
     reset = 0;
     run_i = 0;
     continue_i = 0;
+    sw_i = 16'h0;
     
+    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk)
+    
+    reset <= 1;
+    
+    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk)
+    
+    reset <= 0;
+    
+    repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     
     run_i <= 1;
     
+    repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     
     run_i <= 0;

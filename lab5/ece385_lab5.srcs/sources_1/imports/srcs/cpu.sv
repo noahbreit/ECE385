@@ -31,10 +31,11 @@ module cpu (
     output  logic [15:0] led_o,
     
     // DEBUG DEBUG
-    output  logic [15:0] data_bus,
     output  logic [4:0]  state_out,
-    output  logic [15:0] pc,
-    output  logic [15:0] ir,
+    output  logic [3:0]  ctrl_out,
+    output  logic [15:0] pc_out,
+    output  logic [15:0] ir_out,
+    output  logic [15:0] data_bus_out,
     // DEBUG DEBUG
    
     input   logic [15:0] mem_rdata,
@@ -72,14 +73,13 @@ logic       mio_en;
 logic [15:0] mdr_in;
 logic [15:0] mar; 
 logic [15:0] mdr;
-//logic [15:0] ir;
-//logic [15:0] pc;
+logic [15:0] ir;
+logic [15:0] pc;
 logic ben;
 
-// DEMO1 
-//logic [15:0] data_bus;
+// ADDED
 logic [15:0] pcmux_out;
-// 
+logic [15:0] data_bus;
 
 assign mem_addr = mar;
 assign mem_wdata = mdr;
@@ -95,6 +95,12 @@ control cpu_control (
 
 assign led_o = ir;
 assign hex_display_debug = ir;
+
+// DEBUG DEBUG
+assign ir_out = ir;
+assign pc_out = pc;
+assign data_bus_out = data_bus;
+// DEBUG DEBUG
 
 
 load_reg #(.DATA_WIDTH(16)) ir_reg (
@@ -148,7 +154,8 @@ cpu_bus lc3_bus (
     .alu_in         (),     // TODO
     .marmux_in      (),     // TODO
     
-    .out            (data_bus)
+    .out            (data_bus),
+    .ctrl_out       (ctrl_out)
 );
 
 // # NOTE # INTERAL PC LOGIC

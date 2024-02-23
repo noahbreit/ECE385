@@ -32,7 +32,7 @@ module control (
 	
 	// DEBUG DEBUG
 	output [4:0] state_out,
-	//output [4:0] state_nxt_out,
+	output [3:0] ctrl_out,
 	// DEBUG DEBUG
 		
 	output logic        ld_mar,
