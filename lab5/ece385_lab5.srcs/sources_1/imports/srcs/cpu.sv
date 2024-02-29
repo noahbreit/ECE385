@@ -70,17 +70,54 @@ logic [1:0] addr2mux;
 logic [1:0] aluk;
 logic       mio_en;
 
-logic [15:0] mdr_in;
 logic [15:0] mar; 
 logic [15:0] mdr;
 logic [15:0] ir;
 logic [15:0] pc;
 logic ben;
 
-// ADDED
-logic [15:0] pcmux_out;
+// DATA BUS //
 logic [15:0] data_bus;
 
+// ALU //
+logic [15:0] alu;
+logic [15:0] sr1_out;
+logic [15:0] sr2_out;
+logic [15:0] imm5_out;
+//
+assign imm5_out = 16'(signed'(ir[4:0]));
+
+// MARMUX //
+logic [15:0] marmux;
+logic [15:0] addr1mux_in    [2];
+logic [15:0] addr2mux_in    [4];
+logic [15:0] imm6_out, imm9_out, imm11_out;
+//
+assign imm6_out = 16'(signed'(ir[5:0]));
+assign imm9_out = 16'(signed'(ir[8:0]));
+assign imm11_out = 16'(signed'(ir[10:0]));
+//
+logic [15:0] addr1mux_out;
+logic [15:0] addr2mux_out;
+//
+assign marmux = (addr1mux_out + addr2mux_out);
+
+// CONTROL SIGNALS //
+logic [2:0]  drmux_in   [2];
+logic [2:0]  sr1mux_in  [2];
+logic [15:0] sr2mux_in  [2];
+logic [15:0] pcmux_in   [3]; 
+//
+logic [2:0]  drmux_out;
+logic [2:0]  sr1mux_out;
+logic [15:0] sr2mux_out;
+logic [15:0] pcmux_out;
+
+// MEM INTERFACE //
+logic [15:0] mdrmux_in  [2];
+//
+logic [15:0] mdrmux_out;
+//
 assign mem_addr = mar;
 assign mem_wdata = mdr;
 
@@ -103,6 +140,8 @@ assign data_bus_out = data_bus;
 // DEBUG DEBUG
 
 
+// REGISTERS // 
+//
 load_reg #(.DATA_WIDTH(16)) ir_reg (
     .clk    (clk),
     .reset  (reset),
@@ -128,7 +167,7 @@ load_reg #(.DATA_WIDTH(16)) mdr_reg (
     .reset(reset),
 
     .load(ld_mdr),
-    .data_i(mdr_in),
+    .data_i(mdrmux_out),
     
     .data_q(mdr)
 );
@@ -143,20 +182,109 @@ load_reg #(.DATA_WIDTH(16)) mar_reg (
     .data_q(mar)
 );
 
-reg_file lc3_reg_file (
-    .reset      (reset),
+// CONTROL SIGNAL EXTERNAL LOGIC //
+//
+// DR MUX
+assign drmux_in[0] = ir[11:9];
+assign drmux_in[1] = 3'b111;
+var_mux #(.WIDTH(3), .CHANNELS(2)) dr_mux (
+    .din        (drmux_in),
+    .sel        (drmux),
     
-    .d          (data_bus),
-    
-    .dr         (),
-    .load       (),
-    .sr2_in     (),
-    .sr1_in     (),
-    
-    .sr2_out    (),
-    .sr1_out    ()
+    .out        (drmux_out)
 );
 
+// SR1 MUX
+assign sr1mux_in[0] = ir[11:9];
+assign sr1mux_in[1] = ir[8:6];
+var_mux #(.WIDTH(3), .CHANNELS(2)) sr1_mux (
+    .din        (sr1mux_in),
+    .sel        (sr1mux),
+    
+    .out        (sr1mux_out)
+);
+
+// SR2 MUX
+assign sr2mux_in[0] = sr2_out;
+assign sr2mux_in[1] = imm5_out;
+var_mux #(.WIDTH(3), .CHANNELS(2)) sr2_mux (
+    .din        (sr2mux_in),
+    .sel        (sr2mux),               
+    
+    .out        (sr2mux_out)
+);
+
+// PC MUX
+assign pcmux_in[0] = pc + 1;
+assign pcmux_in[1] = data_bus;
+assign pcmux_in[2] = marmux;
+var_mux #(.WIDTH(16), .CHANNELS(3)) pc_mux (
+    .din        (pcmux_in),
+    .sel        (pcmux),               
+    
+    .out        (pcmux_out)
+);
+
+// MDR MUX
+assign mdrmux_in[0] = mem_rdata;
+assign mdrmux_in[1] = data_bus;
+var_mux #(.WIDTH(16), .CHANNELS(2)) mdr_mux (
+    .din        (mdrmux_in),
+    .sel        (mio_en),               
+    
+    .out        (mdrmux_out)
+);
+
+// ADDR1 MUX
+assign addr1mux_in[0] = pc;
+assign addr1mux_in[1] = sr1_out;
+var_mux #(.WIDTH(16), .CHANNELS(2)) addr1_mux (
+    .din        (addr1mux_in),
+    .sel        (addr1mux),               
+    
+    .out        (addr1mux_out)
+);
+
+// ADDR2 MUX
+assign addr2mux_in[0] = 0;
+assign addr2mux_in[1] = imm6_out;
+assign addr2mux_in[2] = imm9_out;
+assign addr2mux_in[3] = imm11_out;
+var_mux #(.WIDTH(16), .CHANNELS(4)) addr2_mux (
+    .din        (addr2mux_in),
+    .sel        (addr2mux),               
+    
+    .out        (addr2mux_out)
+);
+
+// LARGE MODULES -- REG_FILE, ALU, BUS // 
+//
+// REG FILE
+lc3_reg_file reg_file (
+    .reset      (reset),
+    
+    .din        (data_bus),
+    
+    .dr         (drmux),
+    .load       (ld_reg),
+    .sr2_in     (ir[2:0]),
+    .sr1_in     (sr1mux_out),
+    
+    .sr2_out    (sr2_out),
+    .sr1_out    (sr1_out)
+);
+
+// ALU
+ALU alu_module (
+    .A          (sr1_out),
+    .B          (sr2mux_out),
+    
+    .ALUK       (aluk),
+    
+    .ALU_out    (alu)
+);
+
+// BUS
 cpu_bus lc3_bus (
     .gate_pc        (gate_pc),
     .gate_mdr       (gate_mdr),
@@ -165,34 +293,33 @@ cpu_bus lc3_bus (
     
     .pc_in          (pc),   
     .mdr_in         (mdr),
-    .alu_in         (),     // TODO
-    .marmux_in      (),     // TODO
+    .alu_in         (alu),
+    .marmux_in      (marmux),
     
     .ctrl_out       (ctrl_out),
     .out            (data_bus)
 );
 
 // # NOTE # INTERAL PC LOGIC
-always_comb
-begin
-    case(pcmux)     // TODO ENUMERATE!!
-        2'b00:
-            pcmux_out = pc + 1;
-        default:
-            pcmux_out = pc;
-    endcase
-end
+//always_comb
+//begin
+//    case(pcmux)     // TODO ENUMERATE!!
+//        2'b00:
+//            pcmux_out = pc + 1;
+//        default:
+//            pcmux_out = pc;
+//    endcase
+//end
 
 // # NOTE # INTERNAL MIO LOGIC
-always_comb
-begin
-    case(mio_en)    // TODO ENUMERATE!!
-        1'b0:
-            mdr_in = mem_rdata;
-        1'b1:
-            mdr_in = data_bus;
-    endcase
-end
-
+//always_comb
+//begin
+//    case(mio_en)    // TODO ENUMERATE!!
+//        1'b0:
+//            mdr_in = mem_rdata;
+//        1'b1:
+//            mdr_in = data_bus;
+//    endcase
+//end
 
 endmodule
