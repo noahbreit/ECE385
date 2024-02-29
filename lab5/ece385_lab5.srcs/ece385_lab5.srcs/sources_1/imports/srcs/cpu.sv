@@ -31,11 +31,11 @@ module cpu (
     output  logic [15:0] led_o,
     
     // DEBUG DEBUG
-    output  logic [4:0]  state_out,
-    output  logic [3:0]  ctrl_out,
-    output  logic [15:0] pc_out,
-    output  logic [15:0] ir_out,
-    output  logic [15:0] data_bus_out,
+//    output  logic [4:0]  state_out,
+//    output  logic [3:0]  ctrl_out,
+//    output  logic [15:0] pc_out,
+//    output  logic [15:0] ir_out,
+//    output  logic [15:0] data_bus_out,
     // DEBUG DEBUG
    
     input   logic [15:0] mem_rdata,
@@ -143,20 +143,6 @@ load_reg #(.DATA_WIDTH(16)) mar_reg (
     .data_q(mar)
 );
 
-reg_file lc3_reg_file (
-    .reset      (reset),
-    
-    .d          (data_bus),
-    
-    .dr         (),
-    .load       (),
-    .sr2_in     (),
-    .sr1_in     (),
-    
-    .sr2_out    (),
-    .sr1_out    ()
-);
-
 cpu_bus lc3_bus (
     .gate_pc        (gate_pc),
     .gate_mdr       (gate_mdr),
@@ -168,7 +154,7 @@ cpu_bus lc3_bus (
     .alu_in         (),     // TODO
     .marmux_in      (),     // TODO
     
-    .ctrl_out       (ctrl_out),
+    //    .ctrl_out       (ctrl_out)
     .out            (data_bus)
 );
 

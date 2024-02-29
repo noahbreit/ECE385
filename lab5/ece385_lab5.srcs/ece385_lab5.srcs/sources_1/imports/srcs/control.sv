@@ -31,8 +31,8 @@ module control (
 	input logic 		run_i,
 	
 	// DEBUG DEBUG
-	output [4:0] state_out,
-	output [3:0] ctrl_out,
+//	output [4:0] state_out,
+//	output [3:0] ctrl_out,
 	// DEBUG DEBUG
 		
 	output logic        ld_mar,
@@ -96,7 +96,7 @@ module control (
 	} state, state_nxt;   // Internal state logic
 
     // DEBUG DEBUG
-    assign state_out = state;
+//    assign state_out = state;
 
     // DEBUG DEBUG
 
@@ -321,8 +321,8 @@ module control (
 			s_33_3 : 
 				state_nxt = s_35;
 			s_35 : 
-				state_nxt = s_32;
-//                state_nxt = pause_ir1;
+//				state_nxt = s_32;
+				state_nxt = pause_ir1;
 			// pause_ir1 and pause_ir2 are only for week 1 such that tas can see 
 			// the values in ir.
 			pause_ir1 : 

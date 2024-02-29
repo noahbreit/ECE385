@@ -30,11 +30,11 @@ module slc3 (
 	input  logic [15:0] sw_i,
 	
 	// DEBUG DEBUG
-    output  logic [4:0]  state_out,
-    output  logic [3:0]  ctrl_out,
-    output  logic [15:0] pc_out,
-    output  logic [15:0] ir_out,
-    output  logic [15:0] data_bus_out,
+//    output  logic [4:0]  state_out,
+//    output  logic [3:0]  ctrl_out,
+//    output  logic [15:0] pc_out,
+//    output  logic [15:0] ir_out,
+//    output  logic [15:0] data_bus_out,
     // DEBUG DEBUG
 
 	output logic [15:0] led_o,
@@ -69,11 +69,11 @@ module slc3 (
 		.led_o				(led_o),
 		
 		// DEBUG DEBUG
-        .state_out          (state_out),
-        .ctrl_out           (ctrl_out),
-        .pc_out             (pc_out),
-        .ir_out             (ir_out),
-        .data_bus_out       (data_bus_out),
+//        .state_out          (state_out),
+//        .ctrl_out           (ctrl_out),
+//        .pc_out             (pc_out),
+//        .ir_out             (ir_out),
+//        .data_bus_out       (data_bus_out),
         // DEBUG DEBUG
 
 		.mem_rdata			(cpu_rdata),

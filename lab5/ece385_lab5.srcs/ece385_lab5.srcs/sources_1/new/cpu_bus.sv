@@ -31,18 +31,18 @@ module cpu_bus (
     input logic [15:0] alu_in,
     input logic [15:0] marmux_in,
     
-    output logic [3:0] ctrl_out,
+    //    output logic [3:0] ctrl_out,
     output logic [15:0] out
     );
     
     logic [3:0] ctrl;
     
     assign ctrl = {gate_pc, gate_mdr, gate_alu, gate_marmux};
-    assign ctrl_out = ctrl;
+//    assign ctrl_out = ctrl;
     
     always_comb
     begin
-        unique case (ctrl)
+        case (ctrl)
             4'b1000:       // PC HIGH, ALL ELSE LOW
                 out = pc_in;
                 

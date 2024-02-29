@@ -104,23 +104,6 @@ initial begin: TEST_VECTORS
     repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    
-//    continue_i <= 1;
-    
-//    repeat (4) @(posedge clk)
-    
-//    continue_i <= 0;
-    
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
     
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 
