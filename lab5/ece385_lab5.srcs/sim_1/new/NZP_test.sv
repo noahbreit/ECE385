@@ -21,7 +21,7 @@ logic [2:0] N_Z_P_val;
 // Instantiating the DUT (Device Under Test)
 // Make sure the module and signal names match with those in your design
 //cpu test_cpu(.*);
-N_Z_P_logic NZP_test(.*);
+NZP_logic NZP_test(.*);
 
 
 initial begin: CLOCK_INITIALIZATION
@@ -50,11 +50,13 @@ end
 // same simulation timestep. The exception is for reset, which we want to make sure
 // happens first. 
 initial begin: TEST_VECTORS
-   
-   data_input = 16'b0000000000000000;
-   
-    
     repeat (4) @(posedge clk)
+   data_input = 16'b1000000000000000;
+
+    repeat (4) @(posedge clk)
+   data_input = 16'b0000000000000000;
+   repeat (4) @(posedge clk)
+   data_input = 16'b0000000000000111;
     
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 
