@@ -1,4 +1,6 @@
-module testbench(); //even though the testbench doesn't create any hardware, it still needs to be a module
+module ALU_test();
+
+
 
 timeunit 10ns;  // This is the amount of time represented by #1 
 timeprecision 1ns;
@@ -6,41 +8,11 @@ timeprecision 1ns;
 // These signals are internal because the processor will be 
 // instantiated as a submodule in testbench.
 logic        clk;
-logic        reset;
+logic [15:0] A;
+logic [15:0] B;
+logic [1:0] ALUK;
 
-logic        run_i;
-logic        continue_i;
-logic [15:0] sw_i;
-
-// DEBUG DEBUG -- cpu
-logic [15:0] data_bus_out;
-//logic [15:0] led_o;
-logic [15:0] pc_out;
-logic [15:0] ir_out;
-logic [4:0]  state_out;
-logic [3:0]  ctrl_out;
-//logic [15:0] hex_display_debug;
-
-//logic [15:0] mem_rdata;
-//logic [15:0] mem_wdata;
-//logic [15:0] mem_addr;
-//logic        mem_mem_ena;
-//logic        mem_wr_ena;
-// DEBUG DEBUG
-
-// DEBUG DEBUG -- processor_top
-logic [15:0] led_o;
-
-logic [15:0] sram_rdata;
-logic [15:0] sram_wdata;
-logic [15:0] sram_addr;
-logic sram_mem_ena;
-logic sram_wr_ena;
-
-logic [7:0]  hex_seg_left;
-logic [3:0]  hex_grid_left;
-logic [7:0]  hex_seg_right;
-logic [3:0]  hex_grid_right;
+logic [15:0] ALU_out;
 // DEBUG DEBUG
 
 
@@ -48,7 +20,7 @@ logic [3:0]  hex_grid_right;
 // Instantiating the DUT (Device Under Test)
 // Make sure the module and signal names match with those in your design
 //cpu test_cpu(.*);
-processor_top test_processor(.*);
+ALU ALU_test(.*);
 
 
 initial begin: CLOCK_INITIALIZATION
@@ -77,32 +49,10 @@ end
 // same simulation timestep. The exception is for reset, which we want to make sure
 // happens first. 
 initial begin: TEST_VECTORS
-    reset = 0;
-    run_i = 0;
-    continue_i = 0;
-    sw_i = 16'hFFFF;
+    A = 16'b1010101111001101;
+    B = 16'b0001001000110100;
+    ALUK = 2'b10;
     
-    repeat (4) @(posedge clk)
-    
-    reset <= 1;
-    
-    repeat (4) @(posedge clk)
-    
-    reset <= 0;
-    
-    repeat (4) @(posedge clk)
-    
-    run_i <= 1;
-    
-    repeat (4) @(posedge clk)
-    
-    run_i <= 0;
-    
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
     repeat (4) @(posedge clk)
     
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured

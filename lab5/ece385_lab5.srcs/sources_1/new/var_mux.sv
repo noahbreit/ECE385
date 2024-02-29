@@ -20,23 +20,15 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module var_mux #(parameter  WIDTH = 16, 
-                 parameter  CHANNELS = 4
+                 parameter  CHANNELS = 4,
+                 localparam SEL = $clog2(CHANNELS)
 ) (
     input logic     [(WIDTH - 1) : 0] din [CHANNELS],
-    input logic     [(CHANNELS - 1) : 0] sel,           // ONE HOT
+    input logic     [(SEL - 1) : 0] sel,
     
     output logic    [(WIDTH - 1) : 0] out
 );
 
-always_comb
-begin
-    unique case (sel)
-        0: out = din[0];
-        2: out = din[1];
-        4: out = din[2];
-        8: out = din[3];
-        default: out = 'X;
-    endcase
-end
+assign out = din[sel];
 
 endmodule
