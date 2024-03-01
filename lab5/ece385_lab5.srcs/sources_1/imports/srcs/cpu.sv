@@ -230,7 +230,7 @@ var_mux #(.WIDTH(3), .CHANNELS(2)) sr1_mux (
 // SR2 MUX
 assign sr2mux_in[0] = sr2_out;
 assign sr2mux_in[1] = imm5_out;
-var_mux #(.WIDTH(3), .CHANNELS(2)) sr2_mux (
+var_mux #(.WIDTH(16), .CHANNELS(2)) sr2_mux (
     .din        (sr2mux_in),
     .sel        (sr2mux),               
     
@@ -249,8 +249,8 @@ var_mux #(.WIDTH(16), .CHANNELS(3)) pc_mux (
 );
 
 // MDR MUX
-assign mdrmux_in[0] = mem_rdata;
-assign mdrmux_in[1] = data_bus;
+assign mdrmux_in[0] = data_bus;
+assign mdrmux_in[1] = mem_rdata;
 var_mux #(.WIDTH(16), .CHANNELS(2)) mdr_mux (
     .din        (mdrmux_in),
     .sel        (mio_en),               
@@ -324,7 +324,7 @@ cpu_bus lc3_bus (
 );
 
 //NZP logic
-NZP_logic NZP_logic(
+NZP_logic NZP_logic (
     .data_input     (data_bus),
     
     .N_Z_P_val      (NZP)

@@ -66,22 +66,22 @@ module control (
 
 
 	enum logic [4:0] {  
-		halted, 
-		pause_ir1,
-		pause_ir2, 
-		s_18, 
-		s_33_1,
-		s_33_2,
-		s_33_3,
-		s_35, 
-		s_32, 
-		s_01,
-		s_05,
-		s_09,
-		s_00, 
-        s_22, 
-        s_12, 
-        s_04, 
+		halted,       // 0
+		pause_ir1,    // 1
+		pause_ir2,    // 2
+		s_18,         // 3
+   		s_33_1,       // 4
+		s_33_2,       // 5
+		s_33_3,       // 6
+		s_35,         // 7
+		s_32,         // 8
+		s_01,         // 9
+		s_05,         // A
+		s_09,         // B
+		s_00,         // C
+        s_22,         // D
+        s_12,         // E
+        s_04,         // F
         s_21,
         s_06, 
         s_25_1, 
@@ -157,7 +157,7 @@ module control (
 			s_33_1, s_33_2, s_33_3 : //you may have to think about this as well to adapt to ram with wait-states
 				begin
 					mem_mem_ena = 1'b1;
-//					mio_en = 1'b1;     // FIX??
+					mio_en = 1'b1;
 					ld_mdr = 1'b1;
 					;
 				end
@@ -344,7 +344,7 @@ module control (
 					4'b1101 : state_nxt = pause_ir1; //pse
 					default : state_nxt = s_18;
 				endcase
-			s_01 : 
+			s_01 : //Add
 				state_nxt = s_18;
 			s_05 : //And
 				state_nxt = s_18;

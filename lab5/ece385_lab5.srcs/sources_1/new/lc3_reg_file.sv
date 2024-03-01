@@ -63,9 +63,9 @@ generate
             .clk(clk),
             .reset(reset),
             .load(load_reg[i]), // ONE HOT TRANSLATED FROM DR SIGNAL
-            .data_in(din),
+            .data_i(din),
             
-            .data_out(reg_file[i])
+            .data_q(reg_file[i])
         );
     end
 endgenerate

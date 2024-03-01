@@ -19,13 +19,13 @@ logic [15:0] pc_out;
 logic [15:0] ir_out;
 logic [4:0]  state_out;
 logic [3:0]  ctrl_out;
-//logic [15:0] hex_display_debug;
+logic [15:0] hex_display_debug;
 
-//logic [15:0] mem_rdata;
-//logic [15:0] mem_wdata;
-//logic [15:0] mem_addr;
-//logic        mem_mem_ena;
-//logic        mem_wr_ena;
+logic [15:0] mem_rdata;
+logic [15:0] mem_wdata;
+logic [15:0] mem_addr;
+logic        mem_mem_ena;
+logic        mem_wr_ena;
 // DEBUG DEBUG
 
 // DEBUG DEBUG -- processor_top
@@ -80,7 +80,7 @@ initial begin: TEST_VECTORS
     reset = 0;
     run_i = 0;
     continue_i = 0;
-    sw_i = 16'hFFFF;
+    sw_i = 16'h6;
     
     repeat (4) @(posedge clk)
     
@@ -98,29 +98,9 @@ initial begin: TEST_VECTORS
     
     run_i <= 0;
     
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
+    repeat (50) @(posedge clk)
     
-//    continue_i <= 1;
-    
-//    repeat (4) @(posedge clk)
-    
-//    continue_i <= 0;
-    
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
-    repeat (4) @(posedge clk)
+    run_i <= 0;
     
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 

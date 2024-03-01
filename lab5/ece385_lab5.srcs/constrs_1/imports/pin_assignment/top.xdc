@@ -68,5 +68,3 @@ set_property -dict {PACKAGE_PIN D18 IOSTANDARD LVCMOS25} [get_ports {led_o[13]}]
 set_property -dict {PACKAGE_PIN E18 IOSTANDARD LVCMOS25} [get_ports {led_o[14]}]
 set_property -dict {PACKAGE_PIN G17 IOSTANDARD LVCMOS25} [get_ports {led_o[15]}]
 
-connect_debug_port u_ila_0/probe2 [get_nets [list {io_bridge/cpu_rdata[0]} {io_bridge/cpu_rdata[1]} {io_bridge/cpu_rdata[2]} {io_bridge/cpu_rdata[3]} {io_bridge/cpu_rdata[4]} {io_bridge/cpu_rdata[5]} {io_bridge/cpu_rdata[6]} {io_bridge/cpu_rdata[7]} {io_bridge/cpu_rdata[8]} {io_bridge/cpu_rdata[9]} {io_bridge/cpu_rdata[10]} {io_bridge/cpu_rdata[11]} {io_bridge/cpu_rdata[12]} {io_bridge/cpu_rdata[13]} {io_bridge/cpu_rdata[14]} {io_bridge/cpu_rdata[15]}]]
-

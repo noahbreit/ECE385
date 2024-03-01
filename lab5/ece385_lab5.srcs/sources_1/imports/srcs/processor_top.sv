@@ -15,11 +15,11 @@ module processor_top (
     output  logic [15:0] ir_out,
     output  logic [15:0] data_bus_out,
     
-    output logic [15:0] sram_rdata,
-    output logic [15:0] sram_wdata,
-    output logic [15:0] sram_addr,
-    output logic sram_mem_ena,
-    output logic sram_wr_ena,
+//    output logic [15:0] sram_rdata,
+//    output logic [15:0] sram_wdata,
+//    output logic [15:0] sram_addr,
+//    output logic sram_mem_ena,
+//    output logic sram_wr_ena,
     // DEBUG DEBUG
 
 	output logic [15:0] led_o,
@@ -27,6 +27,7 @@ module processor_top (
 	output logic [3:0]  hex_grid_left,
 	output logic [7:0]  hex_seg_right,
 	output logic [3:0]  hex_grid_right
+
 );
 
 logic reset_s;

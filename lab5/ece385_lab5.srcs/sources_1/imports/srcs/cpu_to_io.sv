@@ -32,16 +32,16 @@ module cpu_to_io (
         sram_wr_ena = 1'b0;
 
         if (cpu_mem_ena) begin
-			if (cpu_addr == 16'hffff) begin
-				cpu_rdata = sw_i;
+			if (cpu_addr == 16'hffff) begin      // if MAR is xFFFF
+				cpu_rdata = sw_i;                // then load MDR from Switches
             end else begin 
                 sram_mem_ena = 1'b1;
 				cpu_rdata = sram_rdata;
             end
 
-            if (cpu_wr_ena) begin
-                if (cpu_addr == 16'hffff) begin
-                    hex_display_d = cpu_wdata;
+            if (cpu_wr_ena) begin               
+                if (cpu_addr == 16'hffff) begin // if MAR is xFFFF
+                    hex_display_d = cpu_wdata;  // then display MDR on left HEX Display
                 end else begin 
                     sram_wr_ena = 1'b1;
                 end
