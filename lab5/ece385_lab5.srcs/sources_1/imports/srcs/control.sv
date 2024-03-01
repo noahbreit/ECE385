@@ -157,7 +157,7 @@ module control (
 			s_33_1, s_33_2, s_33_3 : //you may have to think about this as well to adapt to ram with wait-states
 				begin
 					mem_mem_ena = 1'b1;
-					mio_en = 1'b1;
+					//mio_en = 1'b1;
 					ld_mdr = 1'b1;
 					;
 				end

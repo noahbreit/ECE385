@@ -20,8 +20,8 @@ logic [15:0] ir_out;
 logic [15:0] data_bus_out;
 logic [15:0] marmux_out;
 logic [15:0] sr1_out;
-logic        addr1mux;
-logic [1:0]  addr2mux;
+//logic        addr1mux;
+//logic [1:0]  addr2mux;
     
 logic [15:0] sram_rdata;
 logic [15:0] sram_wdata;
@@ -71,7 +71,7 @@ initial begin: TEST_VECTORS
     reset = 0;
     run_i = 0;
     continue_i = 0;
-    sw_i = 16'h6;
+    sw_i = 16'h3;
     
     repeat (4) @(posedge clk)
     

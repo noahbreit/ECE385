@@ -86,7 +86,7 @@ logic [15:0] data_bus;
 
 // ALU //
 logic [15:0] alu;
-//logic [15:0] sr1_out;
+logic [15:0] sr1_out;
 logic [15:0] sr2_out;
 logic [15:0] imm5_out;
 //
@@ -252,8 +252,10 @@ var_mux #(.WIDTH(16), .CHANNELS(3)) pc_mux (
 );
 
 // MDR MUX
-assign mdrmux_in[0] = data_bus;
-assign mdrmux_in[1] = mem_rdata;
+//assign mdrmux_in[0] = data_bus;
+//assign mdrmux_in[1] = mem_rdata;
+assign mdrmux_in[0] = mem_rdata;
+assign mdrmux_in[1] = data_bus;
 var_mux #(.WIDTH(16), .CHANNELS(2)) mdr_mux (
     .din        (mdrmux_in),
     .sel        (mio_en),               

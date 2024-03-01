@@ -43,12 +43,6 @@ logic [15:0] sram_addr;
 logic sram_mem_ena;
 logic sram_wr_ena;
 
-assign sram_rdata_out = sram_rdata;
-assign sram_wdata_out = sram_wdata;
-assign sram_addr_out = sram_addr;
-assign sram_mem_ena_out = sram_mem_ena;
-assign sram_wr_ena_out = sram_wr_ena;
-
 sync_debounce button_sync [2:0] (
 	.clk	(clk), 
 	.d		({run_i, continue_i, reset}), 
