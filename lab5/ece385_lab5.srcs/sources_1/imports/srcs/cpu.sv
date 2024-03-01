@@ -31,11 +31,13 @@ module cpu (
     output  logic [15:0] led_o,
     
     // DEBUG DEBUG
-    output  logic [4:0]  state_out,
     output  logic [3:0]  ctrl_out,
+    output  logic [15:0] data_bus_out,
     output  logic [15:0] pc_out,
     output  logic [15:0] ir_out,
-    output  logic [15:0] data_bus_out,
+    output  logic [4:0]  state_out,
+    output  logic [15:0] marmux_out,
+    output  logic [15:0] sr1_out,
     // DEBUG DEBUG
    
     input   logic [15:0] mem_rdata,
@@ -84,7 +86,7 @@ logic [15:0] data_bus;
 
 // ALU //
 logic [15:0] alu;
-logic [15:0] sr1_out;
+//logic [15:0] sr1_out;
 logic [15:0] sr2_out;
 logic [15:0] imm5_out;
 //
@@ -140,6 +142,7 @@ assign hex_display_debug = ir;
 assign ir_out = ir;
 assign pc_out = pc;
 assign data_bus_out = data_bus;
+assign marmux_out = marmux;
 // DEBUG DEBUG
 
 
@@ -269,7 +272,7 @@ var_mux #(.WIDTH(16), .CHANNELS(2)) addr1_mux (
 );
 
 // ADDR2 MUX
-assign addr2mux_in[0] = 0;
+assign addr2mux_in[0] = '0;
 assign addr2mux_in[1] = imm6_out;
 assign addr2mux_in[2] = imm9_out;
 assign addr2mux_in[3] = imm11_out;
@@ -284,11 +287,12 @@ var_mux #(.WIDTH(16), .CHANNELS(4)) addr2_mux (
 //
 // REG FILE
 lc3_reg_file reg_file (
+    .clk        (clk),
     .reset      (reset),
     
     .din        (data_bus),
     
-    .dr         (drmux),
+    .dr         (drmux_out),
     .load       (ld_reg),
     .sr2_in     (ir[2:0]),
     .sr1_in     (sr1mux_out),

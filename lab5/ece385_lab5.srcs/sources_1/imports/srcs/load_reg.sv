@@ -1,5 +1,5 @@
 module load_reg #(
-    parameter DATA_WIDTH = 1 // define a parameter for the data width of the register
+    parameter DATA_WIDTH = 16 // define a parameter for the data width of the register
                              // so we don't have to make a new module for every register size
                              // Here, the default is set to 1
 ) (

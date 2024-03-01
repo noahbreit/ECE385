@@ -35,6 +35,8 @@ module slc3 (
     output  logic [15:0] pc_out,
     output  logic [15:0] ir_out,
     output  logic [15:0] data_bus_out,
+    output  logic [15:0] marmux_out,
+    output  logic [15:0] sr1_out,
     // DEBUG DEBUG
 
 	output logic [15:0] led_o,
@@ -74,6 +76,8 @@ module slc3 (
         .pc_out             (pc_out),
         .ir_out             (ir_out),
         .data_bus_out       (data_bus_out),
+        .marmux_out         (marmux_out),
+        .sr1_out            (sr1_out),
         // DEBUG DEBUG
 
 		.mem_rdata			(cpu_rdata),

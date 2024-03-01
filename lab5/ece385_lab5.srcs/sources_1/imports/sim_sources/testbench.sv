@@ -12,38 +12,29 @@ logic        run_i;
 logic        continue_i;
 logic [15:0] sw_i;
 
-// DEBUG DEBUG -- cpu
-logic [15:0] data_bus_out;
-//logic [15:0] led_o;
-logic [15:0] pc_out;
-logic [15:0] ir_out;
+// DEBUG DEBUG
 logic [4:0]  state_out;
 logic [3:0]  ctrl_out;
-logic [15:0] hex_display_debug;
-
-logic [15:0] mem_rdata;
-logic [15:0] mem_wdata;
-logic [15:0] mem_addr;
-logic        mem_mem_ena;
-logic        mem_wr_ena;
-// DEBUG DEBUG
-
-// DEBUG DEBUG -- processor_top
-logic [15:0] led_o;
-
+logic [15:0] pc_out;
+logic [15:0] ir_out;
+logic [15:0] data_bus_out;
+logic [15:0] marmux_out;
+logic [15:0] sr1_out;
+logic        addr1mux;
+logic [1:0]  addr2mux;
+    
 logic [15:0] sram_rdata;
 logic [15:0] sram_wdata;
 logic [15:0] sram_addr;
 logic sram_mem_ena;
 logic sram_wr_ena;
+// DEBUG DEBUG
 
+logic [15:0] led_o;
 logic [7:0]  hex_seg_left;
 logic [3:0]  hex_grid_left;
 logic [7:0]  hex_seg_right;
 logic [3:0]  hex_grid_right;
-// DEBUG DEBUG
-
-
 
 // Instantiating the DUT (Device Under Test)
 // Make sure the module and signal names match with those in your design
