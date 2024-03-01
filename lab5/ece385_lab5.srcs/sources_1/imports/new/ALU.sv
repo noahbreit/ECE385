@@ -38,7 +38,7 @@ output logic [15:0] ALU_out
                ALU_result = A&B;
            2'b10:
                ALU_result = ~A;
-           2'B11: 
+           2'b11: 
                ALU_result = A;
            default : ALU_result = A+B;
 	   endcase

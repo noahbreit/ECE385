@@ -43,16 +43,19 @@ assign sr1_out = reg_file[sr1_in];
 
 always_comb
 begin
-    unique case (dr)            // TRANSLATE 3-BIT SIGNAL TO 8-BIT ONE HOT SIGNAL
-        0:  load_reg = 8'h01;
-        1:  load_reg = 8'h02;
-        2:  load_reg = 8'h04;
-        3:  load_reg = 8'h08;
-        4:  load_reg = 8'h10;
-        5:  load_reg = 8'h20;
-        6:  load_reg = 8'h40;
-        7:  load_reg = 8'h80;
-    endcase
+    if(load)
+    begin
+        unique case (dr)            // TRANSLATE 3-BIT SIGNAL TO 8-BIT ONE HOT SIGNAL
+            0:  load_reg = 8'h01;
+            1:  load_reg = 8'h02;
+            2:  load_reg = 8'h04;
+            3:  load_reg = 8'h08;
+            4:  load_reg = 8'h10;
+            5:  load_reg = 8'h20;
+            6:  load_reg = 8'h40;
+            7:  load_reg = 8'h80;
+        endcase
+    end
 end
 
 genvar i;

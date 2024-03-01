@@ -31,8 +31,8 @@ module control (
 	input logic 		run_i,
 	
 	// DEBUG DEBUG
-	output [4:0] state_out,
-	output [3:0] ctrl_out,
+//	output [4:0] state_out,
+//	output [3:0] ctrl_out,
 	// DEBUG DEBUG
 		
 	output logic        ld_mar,
@@ -73,14 +73,14 @@ module control (
    		s_33_1,       // x4
 		s_33_2,       // x5
 		s_33_3,       // x6
-		s_35,         // x7
-		s_32,         // x8
+		s_35,         // x7 -- load IR from MDR
+		s_32,         // x8 -- set BEN
 		s_01,         // x9
 		s_05,         // xA
 		s_09,         // xB
 		s_00,         // xC
         s_22,         // xD
-        s_12,         // xE
+        s_12,         // xE -- JMP
         s_04,         // xF
         s_21,         // x10
         s_06,         // x11 -- LDR

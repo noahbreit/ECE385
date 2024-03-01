@@ -31,13 +31,13 @@ module cpu (
     output  logic [15:0] led_o,
     
     // DEBUG DEBUG
-    output  logic [3:0]  ctrl_out,
-    output  logic [15:0] data_bus_out,
-    output  logic [15:0] pc_out,
-    output  logic [15:0] ir_out,
-    output  logic [4:0]  state_out,
-    output  logic [15:0] marmux_out,
-    output  logic [15:0] sr1_out,
+//    output  logic [3:0]  ctrl_out,
+//    output  logic [15:0] data_bus_out,
+//    output  logic [15:0] pc_out,
+//    output  logic [15:0] ir_out,
+//    output  logic [4:0]  state_out,
+//    output  logic [15:0] marmux_out,
+//    output  logic [15:0] sr1_out,
     // DEBUG DEBUG
    
     input   logic [15:0] mem_rdata,
@@ -136,13 +136,13 @@ control cpu_control (
 
 
 assign led_o = ir;
-assign hex_display_debug = ir;
+assign hex_display_debug = pc;
 
 // DEBUG DEBUG
-assign ir_out = ir;
-assign pc_out = pc;
-assign data_bus_out = data_bus;
-assign marmux_out = marmux;
+//assign ir_out = ir;
+//assign pc_out = pc;
+//assign data_bus_out = data_bus;
+//assign marmux_out = marmux;
 // DEBUG DEBUG
 
 
