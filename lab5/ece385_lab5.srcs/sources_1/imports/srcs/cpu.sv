@@ -332,7 +332,7 @@ NZP_logic NZP_logic(
     
 //ben logic 
 ben_logic ben_logic(
-    .ir_in          (ir),
+    .ir_in          (ir[11:9]),
     .nzp_in         (NZP_ctrl),
     
     .ben            (ben_logic_out)
