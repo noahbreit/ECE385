@@ -75,6 +75,9 @@ logic [15:0] mdr;
 logic [15:0] ir;
 logic [15:0] pc;
 logic ben;
+logic ben_logic_out;
+logic [2:0] NZP;
+logic [2:0] NZP_ctrl;
 
 // DATA BUS //
 logic [15:0] data_bus;
@@ -180,6 +183,26 @@ load_reg #(.DATA_WIDTH(16)) mar_reg (
     .data_i(data_bus),
 
     .data_q(mar)
+);
+
+load_reg #(.DATA_WIDTH(3)) NZP_reg (
+    .clk(clk),
+    .reset(reset),
+
+    .load(ld_cc),
+    .data_i(NZP),
+
+    .data_q(NZP_ctrl) 
+);
+
+load_reg #(.DATA_WIDTH(1)) ben_reg (
+    .clk(clk),
+    .reset(reset),
+
+    .load(ld_ben),
+    .data_i(ben_logic_out),
+
+    .data_q(ben) 
 );
 
 // CONTROL SIGNAL EXTERNAL LOGIC //
@@ -298,6 +321,21 @@ cpu_bus lc3_bus (
     
     .ctrl_out       (ctrl_out),
     .out            (data_bus)
+);
+
+//NZP logic
+NZP_logic NZP_logic(
+    .data_input     (data_bus),
+    
+    .N_Z_P_val      (NZP)
+);
+    
+//ben logic 
+ben_logic ben_logic(
+    .ir_in          (ir),
+    .nzp_in         (NZP_ctrl),
+    
+    .ben            (ben_logic_out)
 );
 
 // # NOTE # INTERAL PC LOGIC
