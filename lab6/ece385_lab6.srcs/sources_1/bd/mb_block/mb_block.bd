@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0xC225C349A572EF56",
+      "boundary_crc": "0x6D56A14BE039FB92",
       "device": "xc7s50csga324-1",
       "gen_directory": "../../../../ece385_lab6.gen/sources_1/bd/mb_block",
       "name": "mb_block",
@@ -44,7 +44,7 @@
           "TRI_O": {
             "physical_name": "gpio_rtl_0_tri_o",
             "direction": "O",
-            "left": "0",
+            "left": "15",
             "right": "0"
           }
         }
@@ -940,7 +940,7 @@
             "value": "1"
           },
           "C_GPIO_WIDTH": {
-            "value": "1"
+            "value": "16"
           }
         }
       },
