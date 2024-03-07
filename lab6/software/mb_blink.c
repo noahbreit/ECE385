@@ -30,8 +30,8 @@ int main()
 {
 	uint16_t sum = 0;
 	uint16_t prev_sum = 0;
-	uint16_t * sw_in = 0;
-	uint8_t * btn_in = 0;
+//	volatile uint16_t * sw_in = 0;
+//	volatile uint8_t * btn_in = 0;
 
     init_platform();
 
@@ -40,14 +40,14 @@ int main()
 		sleep(1);
 
 		// GPIO READ
-		memcpy(sw_in, led_gpio_sw_in, sizeof(*sw_in));
-		memcpy(btn_in, led_gpio_btn_in, sizeof(*btn_in));
+//		memcpy(btn_in, led_gpio_btn_in, sizeof(*btn_in));
+//		memcpy(sw_in, led_gpio_sw_in, sizeof(*sw_in));
 
 		// UPDATE SUM
 		prev_sum = sum;
-		if ( (*btn_in) & ACCUMULATE_FLAG )
+		if ( (*led_gpio_btn_in) & ACCUMULATE_FLAG )
 		{
-			sum += (uint16_t)(*sw_in);
+			sum += (uint16_t)(*led_gpio_sw_in);
 		}
 
 		// GPIO WRITE
