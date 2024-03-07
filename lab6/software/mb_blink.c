@@ -15,10 +15,12 @@
 
 #include "platform.h"
 
-#define ACCUMULATE_FLAG 0x00010000
+#define ACCUMULATE_FLAG 0x1
 
 volatile uint32_t* led_gpio_out = XPAR_AXI_GPIO_0_BASEADDR;
-volatile uint32_t* led_gpio_in = XPAR_AXI_GPIO_1_BASEADDR;
+volatile uint32_t* led_gpio_sw_in = XPAR_AXI_GPIO_1_BASEADDR;
+volatile uint32_t* led_gpio_btn_in = XPAR_AXI_GPIO_2_BASEADDR;
+
 //volatile uint32_t* led_gpio_data = <find the base address>;  //Hint: either find the manual address (via the memory map in the block diagram, or
 															 //replace with the proper define in xparameters (part of the BSP). Either way
 															 //this is the base address of the GPIO corresponding to your LEDs
@@ -26,9 +28,10 @@ volatile uint32_t* led_gpio_in = XPAR_AXI_GPIO_1_BASEADDR;
 
 int main()
 {
-	volatile uint16_t sum = 0;
-	volatile uint16_t prev_sum = 0;
-	volatile uint32_t * sw_in = 0;
+	uint16_t sum = 0;
+	uint16_t prev_sum = 0;
+	uint16_t * sw_in = 0;
+	uint8_t * btn_in = 0;
 
     init_platform();
 
@@ -37,23 +40,21 @@ int main()
 		sleep(1);
 
 		// GPIO READ
-		memcpy(sw_in, led_gpio_in, sizeof(*sw_in));
+		memcpy(sw_in, led_gpio_sw_in, sizeof(*sw_in));
+		memcpy(btn_in, led_gpio_btn_in, sizeof(*btn_in));
 
 		// UPDATE SUM
 		prev_sum = sum;
-		if ( (*sw_in) & ACCUMULATE_FLAG )
+		if ( (*btn_in) & ACCUMULATE_FLAG )
 		{
 			sum += (uint16_t)(*sw_in);
-	//		sum += (uint16_t)(*led_gpio_in);
 		}
 
 		// GPIO WRITE
-		*led_gpio_out &=  0x00000000;	// clear prev LEDs
+		*led_gpio_out &=  0x0;			// clear prev LEDs
 		*led_gpio_out |=  sum;			// set LEDs to current sum
 
 		// SERIAL OUTPUT
-//		printf("Sum : %u", (sum));
-
 		if (sum != prev_sum)
 		{
 			printf("Led Update!\r\n");
