@@ -13,10 +13,10 @@ logic        continue_i;
 logic [15:0] sw_i;
 
 // DEBUG DEBUG
-logic [4:0]  state_out;
-logic [3:0]  ctrl_out;
+//logic [4:0]  state_out;
+//logic [3:0]  ctrl_out;
 logic [15:0] pc_out;
-logic [15:0] ir_out;
+//logic [15:0] ir_out;
 logic [15:0] data_bus_out;
 //logic [15:0] marmux_out;
 //logic [15:0] sr1_out;
@@ -73,25 +73,23 @@ initial begin: TEST_VECTORS
     continue_i = 0;
     sw_i = 16'h009C;            // AUTO_COUNTING_TEST INPUT IS PC <= 0x009C
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     reset <= 1;
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     reset <= 0;
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     run_i <= 1;
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     run_i <= 0;
     
-    repeat (50) @(posedge clk)
-    
-    run_i <= 0;
+    repeat (128) @(posedge clk);
     
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 

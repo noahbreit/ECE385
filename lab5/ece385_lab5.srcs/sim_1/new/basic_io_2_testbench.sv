@@ -3,7 +3,10 @@ module basic_io_2_testbench(); //even though the testbench doesn't create any ha
 timeunit 10ns;  // This is the amount of time represented by #1 
 timeprecision 1ns;
 
-`define LOOP_NUM 4
+`define LOOP_NUM 2
+`define LED_A   (16'h1818)
+`define LED_B   (16'h8181)
+`define PAUSE_STATE (16'h0007)
 
 // These signals are internal because the processor will be 
 // instantiated as a submodule in testbench.
@@ -74,71 +77,51 @@ initial begin: TEST_VECTORS
     reset = 0;
     run_i = 0;
     continue_i = 0;
-    sw_i = 16'h0003;       // BASIC_IO_2 INPUT IS PC <= 0x0006
+    sw_i = 16'h0006;       // BASIC_IO_1 INPUT IS PC <= 0x0003
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     reset <= 1;
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     reset <= 0;
     
-    repeat (4) @(posedge clk)
+    repeat (4) @(posedge clk);
     
     run_i <= 1;
     
-    repeat (32) @(posedge clk)   // WAIT FOR BASIC_IO_TEST_2 TO BE FETCHED
+    repeat (32) @(posedge clk); // WAIT FOR BASIC_IO_TEST_1 TO BE FETCHED
     
     run_i <= 0;
     
-    repeat (1) @(posedge clk)  // BEGIN BASIC_IO_TEST_2
-    begin
+    wait (pc_out == `PAUSE_STATE);
     
-        for ( i = 0; i < (`LOOP_NUM / 2); i = i + 1)
-        begin        
-            if (sw_i % 2 == 1)
-            begin
-                sw_i = 16'h1818;
-            end
-            else 
-            begin
-                sw_i = 16'h8181;
-            end
-            
-            repeat (4) @(pc_out == 16'h0004)
-            
-            ;
-        end
-    end
-    
-    repeat (4) @(posedge clk)   // NOTHING SHOULD HAVE HAPPENED, AS CONTINUE WAS LOW...
+    repeat (32) @(posedge clk);
     
     continue_i <= 1;
     
-    repeat (1) @(posedge clk)  // repeat
-    begin
+    repeat (32) @(posedge clk);  // WAIT FOR CONTINUE TO RESOLVE...
     
-        for ( i = 0; i < (`LOOP_NUM / 2); i = i + 1)
-        begin        
-            if (sw_i % 2 == 1)
-            begin
-                sw_i = 16'h1818;
-            end
-            else 
-            begin
-                sw_i = 16'h8181;
-            end
-            
-            repeat (4) @(pc_out == 16'h0004)
-            
-            ;
-        end
-    end
+    continue_i <= 0;
     
-    repeat (4) @(posedge clk)   // NOTHING SHOULD HAVE HAPPENED, AS CONTINUE WAS LOW...
+    repeat (32) @(posedge clk);  // BEGIN BASIC_IO_TEST_1 
     
-    run_i <= 0;
+    sw_i <= `LED_A;
+         
+    repeat (32) @(posedge clk);
+    
+    continue_i <= 1;
+    
+    repeat (32) @(posedge clk);  // WAIT FOR CONTINUE TO RESOLVE...
+    
+    continue_i <= 0;
+    
+    repeat (32) @(posedge clk);
+    
+    sw_i <= `LED_B;
+    
+    repeat (128) @(posedge clk); // NEW SWITCH INPUT SHOULD NOT CHANGE HEX_DISPLAY...
     
 	$finish(); //this task will end the simulation if the Vivado settings are properly configured
 
