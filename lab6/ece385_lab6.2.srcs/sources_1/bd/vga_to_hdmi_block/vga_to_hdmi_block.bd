@@ -1,0 +1,305 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x5F75650393CEC6A",
+      "device": "xc7s50csga324-1",
+      "gen_directory": "../../../../ece385_lab6.2.gen/sources_1/bd/vga_to_hdmi_block",
+      "name": "vga_to_hdmi_block",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "hdmi_tx_0": ""
+    },
+    "ports": {
+      "pix_clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "vga_to_hdmi_block_pix_clk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "25000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "pix_clkx5": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "vga_to_hdmi_block_pix_clkx5",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "125000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "pix_clk_locked": {
+        "direction": "I"
+      },
+      "rst": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "red": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "green": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "blue": {
+        "direction": "I",
+        "left": "7",
+        "right": "0"
+      },
+      "hsync": {
+        "direction": "I"
+      },
+      "vsync": {
+        "direction": "I"
+      },
+      "vde": {
+        "direction": "I"
+      },
+      "aux0_din": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "aux1_din": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "aux2_din": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "ade": {
+        "direction": "I"
+      },
+      "TMDS_CLK_P": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "TMDS_CLK_N": {
+        "type": "clk",
+        "direction": "O",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000",
+            "value_src": "default"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "TMDS_DATA_N": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      },
+      "TMDS_DATA_P": {
+        "direction": "O",
+        "left": "2",
+        "right": "0"
+      }
+    },
+    "components": {
+      "hdmi_tx_0": {
+        "vlnv": "realdigital.org:realdigital:hdmi_tx:1.0",
+        "xci_name": "vga_to_hdmi_block_hdmi_tx_0_0",
+        "xci_path": "ip\\vga_to_hdmi_block_hdmi_tx_0_0\\vga_to_hdmi_block_hdmi_tx_0_0.xci",
+        "inst_hier_path": "hdmi_tx_0",
+        "parameters": {
+          "MODE": {
+            "value": "HDMI"
+          }
+        }
+      }
+    },
+    "nets": {
+      "ade_1": {
+        "ports": [
+          "ade",
+          "hdmi_tx_0/ade"
+        ]
+      },
+      "aux0_din_1": {
+        "ports": [
+          "aux0_din",
+          "hdmi_tx_0/aux0_din"
+        ]
+      },
+      "aux1_din_1": {
+        "ports": [
+          "aux1_din",
+          "hdmi_tx_0/aux1_din"
+        ]
+      },
+      "aux2_din_1": {
+        "ports": [
+          "aux2_din",
+          "hdmi_tx_0/aux2_din"
+        ]
+      },
+      "blue_1": {
+        "ports": [
+          "blue",
+          "hdmi_tx_0/blue"
+        ]
+      },
+      "green_1": {
+        "ports": [
+          "green",
+          "hdmi_tx_0/green"
+        ]
+      },
+      "hdmi_tx_0_TMDS_CLK_N": {
+        "ports": [
+          "hdmi_tx_0/TMDS_CLK_N",
+          "TMDS_CLK_N"
+        ]
+      },
+      "hdmi_tx_0_TMDS_CLK_P": {
+        "ports": [
+          "hdmi_tx_0/TMDS_CLK_P",
+          "TMDS_CLK_P"
+        ]
+      },
+      "hdmi_tx_0_TMDS_DATA_N": {
+        "ports": [
+          "hdmi_tx_0/TMDS_DATA_N",
+          "TMDS_DATA_N"
+        ]
+      },
+      "hdmi_tx_0_TMDS_DATA_P": {
+        "ports": [
+          "hdmi_tx_0/TMDS_DATA_P",
+          "TMDS_DATA_P"
+        ]
+      },
+      "hsync_1": {
+        "ports": [
+          "hsync",
+          "hdmi_tx_0/hsync"
+        ]
+      },
+      "pix_clk_1": {
+        "ports": [
+          "pix_clk",
+          "hdmi_tx_0/pix_clk"
+        ]
+      },
+      "pix_clk_locked_1": {
+        "ports": [
+          "pix_clk_locked",
+          "hdmi_tx_0/pix_clk_locked"
+        ]
+      },
+      "pix_clkx5_1": {
+        "ports": [
+          "pix_clkx5",
+          "hdmi_tx_0/pix_clkx5"
+        ]
+      },
+      "red_1": {
+        "ports": [
+          "red",
+          "hdmi_tx_0/red"
+        ]
+      },
+      "rst_1": {
+        "ports": [
+          "rst",
+          "hdmi_tx_0/rst"
+        ]
+      },
+      "vde_1": {
+        "ports": [
+          "vde",
+          "hdmi_tx_0/vde"
+        ]
+      },
+      "vsync_1": {
+        "ports": [
+          "vsync",
+          "hdmi_tx_0/vsync"
+        ]
+      }
+    }
+  }
+}
