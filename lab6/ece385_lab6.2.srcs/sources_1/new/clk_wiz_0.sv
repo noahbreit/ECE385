@@ -21,7 +21,11 @@
 
 
 module clk_wiz_0(
-    // TODO!
+    input logic     clk_in1,
+    input logic     reset,
+    output logic    clk_out1,
+    output logic    clk_out2,
+    output logic    locked
     );
     
     clk_wiz_block_wrapper clk_wiz_block_wrapper (.*);
