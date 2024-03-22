@@ -49,11 +49,18 @@ module  ball
         Ball_Y_Motion_next = Ball_Y_Motion; // set default motion to be same as prev clock cycle 
         Ball_X_Motion_next = Ball_X_Motion;
 
-        //*********************Y-MOTION*****************************//
+    //*********************Y-MOTION*****************************//
         //modify to control ball motion with the keycode
-        if (keycode == 8'h1A)                   // KEYCODE #26 or 'W'
+        if (keycode == 8'h1A)                    // KEYCODE #26 or 'W'
+        begin
             Ball_Y_Motion_next = Ball_Y_Step;
-
+            Ball_X_Motion_next = 0; 
+        end 
+        else if(keycode == 8'h16)               //keycode   #22 or 'S'
+        begin 
+            Ball_Y_Motion_next = (~ (Ball_Y_Step) + 1'b1);
+            Ball_X_Motion_next = 0;
+        end 
 
         if ( (BallY + BallS) >= Ball_Y_Max )  // Ball is at the bottom edge, BOUNCE!
         begin
@@ -63,12 +70,19 @@ module  ball
         begin
             Ball_Y_Motion_next = Ball_Y_Step;
         end  
+
        //fill in the rest of the motion equations here to bounce left and right
        //**********************X-MOTION*******************************//
-       //modify to control ball motion with the keycode
-        if (keycode == 8'h07)                   // KEYCODE #7 or 'D'
+        if(keycode == 8'h4)                //keycode   #4 or 'A'
+        begin 
+            Ball_X_Motion_next = (~ (Ball_X_Step) + 1'b1);
+            Ball_Y_Motion_next = 0;
+        end 
+        else if(keycode == 8'h7)                //keycode   #7 or 'D'
+        begin 
             Ball_X_Motion_next = Ball_X_Step;
-
+            Ball_Y_Motion_next = 0;
+        end 
 
         if ( (BallX + BallS) >= Ball_X_Max )  // Ball is at the right edge, BOUNCE!
         begin
@@ -76,8 +90,8 @@ module  ball
         end
         else if ( (BallX - BallS) <= Ball_X_Min )  // Ball is at the left edge, BOUNCE!
         begin
-            Ball_Y_Motion_next = Ball_X_Step;
-        end
+            Ball_X_Motion_next = Ball_X_Step;
+        end  
 
     end
 
