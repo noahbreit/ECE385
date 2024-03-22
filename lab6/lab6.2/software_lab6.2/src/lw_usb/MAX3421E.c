@@ -8,7 +8,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 #include "string.h"
-#include "project_config.h"
+#include "../project_config.h"
 #include "xparameters.h"
 #include <unistd.h>
 #include <xspi.h>
@@ -76,38 +76,26 @@ void MAXreg_wr(BYTE reg, BYTE val) {
 	//deselect MAX3421E (may not be necessary if you are using SPI peripheral)
 
 	/***INIT_VARS***/
-	u8 ReadBuffer[BUFFER_SIZE];
-	u8 WriteBuffer[BUFFER_SIZE];
-	uint Size;
-	u32 i;
-	int spi_return_val;
+	BYTE reg_buffer = reg + 2;
+	BYTE write_buffer = val;
+	int test_val;
+	//...
 
 	/***SELECT***/
-//	spi_return_val = XSpi_SetSlaveSelect(&SpiInstance,	// STATIC
-//										  (0x1);		// ARG?
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+					  	 SLAVE_MASK);	// TODO: CONFIRM MASK??
 
-	/***TEST***/
-//	if ( spi_return_val != 0 )
-//	{
-//		xil_printf("MAXreg_wr Error. Line : %d", __LINE__);
-//	}
+	/***WRITE_REG***/
+	XSpi_Transfer(&SpiInstance, &reg_buffer, &reg_buffer, sizeof(reg_buffer));
 
 	/***WRITE_VAL***/
-//	ReadBuffer = NULL;
-	for ( i = 0; i < BUFFER_SIZE; i++ ) { WriteBuffer[i] = 0; }
-	WriteBuffer[0] = (reg + 2);
-	WriteBuffer[1] = val;
-	Size = (sizeof(val) + sizeof(reg)) / sizeof(BYTE);
-	spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-									&WriteBuffer, 		// ARG
-									0, 					// NULL
-									Size);				// ARG
+	test_val = XSpi_Transfer(&SpiInstance, &write_buffer, &write_buffer, sizeof(write_buffer));
+	if ( test_val != 0 ) xil_printf("ERROR. MAXreg_wr @ %d", __LINE__);
+	//...
 
-	/***TEST***/
-	if ( spi_return_val != 0 )
-	{
-		xil_printf("MAXreg_wr Error. Line : %d", __LINE__);
-	}
+	/***DESELECT***/
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 0x0);			// CLEAR SLAVE STATUS
 
 	/***RETURN***/
 	return;
@@ -127,47 +115,28 @@ BYTE* MAXbytes_wr(BYTE reg, BYTE nbytes, BYTE* data) {
 	//return (data + nbytes);
 
 	/***INIT_VARS***/
-	u8 ReadBuffer[BUFFER_SIZE];
-	u8 WriteBuffer[BUFFER_SIZE];
-	uint Size;
-	u32 i;
-	int spi_return_val;
+	BYTE reg_buffer = reg + 2;
+	BYTE write_buffer[nbytes];
+	int test_val;
+	int i;
+	//...
 
-	/*TEST*/
-	if ( data == NULL )
-	{
-		xil_printf("MAXbytes_wr Error. Line : %d", __LINE__);
-	}
+	/***SELECT***/
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 SLAVE_MASK);	// TODO: CONFIRM MASK??
 
-	/***WRITE_BYTES***/
-//	ReadBuffer = NULL;
-	for ( i = 0; i < BUFFER_SIZE; i++ ) { WriteBuffer[i] = 0; }
+	/***WRITE_REG***/
+	XSpi_Transfer(&SpiInstance, &reg_buffer, &reg_buffer, sizeof(reg_buffer));
 
-	/**WRITE_REG**/
-	WriteBuffer[0] = (reg + 2);
-	Size = sizeof(reg) / sizeof(BYTE);
-	spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-									&WriteBuffer, 		// ARG
-									0, 					// NULL
-									Size);				// ARG
+	/***WRITE_VAL***/
+	for ( i = 0; i < nbytes; i++ ) { write_buffer[i] = data[i]; }
+	// hard copy data arg ^
+	test_val = XSpi_Transfer(&SpiInstance, &write_buffer, &write_buffer, sizeof(write_buffer));
+	//...
 
-	/**WRITE_DATA**/
-//	WriteBuffer = data;
-	for ( i = 0; i < nbytes; i++ )
-	{
-		/*WRITE*/
-		Size = sizeof(data[i]) / sizeof(BYTE);
-		spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-										&(data[i]),			// ARG
-										0, 					// NULL
-										Size);				// ARG
-
-		/*TEST*/
-		if ( spi_return_val != 0 )
-		{
-			xil_printf("MAXbytes_wr Error. Line : %d", __LINE__);
-		}
-	}
+	/***DESELECT***/
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 0x0);			// CLEAR SLAVE STATUS
 
 	/***RETURN***/
 	return (data + nbytes);
@@ -185,57 +154,30 @@ BYTE MAXreg_rd(BYTE reg) {
 	//return val
 
 	/***INIT_VARS***/
-	u8 ReadBuffer[BUFFER_SIZE];
-	u8 WriteBuffer[BUFFER_SIZE];
-	uint Size;
-	u32 i;
-	BYTE return_val;
-	int spi_return_val;
+	BYTE reg_buffer = reg;
+	BYTE read_buffer = 0;
+	int test_val;
+	//...
 
 	/***SELECT***/
-//	spi_return_val = XSpi_SetSlaveSelect(&SpiInstance,	// STATIC
-//										  (0x1);		// ARG?
-
-	/***TEST***/
-//	if ( spi_return_val != 0 )
-//	{
-//		xil_printf("MAXreg_rd Error. Line : %d", __LINE__);
-//	}
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 SLAVE_MASK);	// TODO: CONFIRM MASK??
 
 	/***WRITE_REG***/
-//	ReadBuffer = NULL;
-	for ( i = 0; i < BUFFER_SIZE; i++ ) { WriteBuffer[i] = 0; }
-	WriteBuffer[0] = (reg + 2);
-	Size = sizeof(reg) / sizeof(BYTE);
-	spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-									&WriteBuffer, 		// ARG
-									0, 					// NULL
-									Size);				// ARG
+	XSpi_Transfer(&SpiInstance, &reg_buffer, &reg_buffer, sizeof(reg_buffer));
 
-	/***TEST***/
-	if ( spi_return_val != 0 )
-	{
-		xil_printf("MAXreg_rd Error. Line : %d", __LINE__);
-	}
+	/***READ_VAL***/
+	test_val = XSpi_Transfer(&SpiInstance, &read_buffer, &read_buffer, sizeof(read_buffer));
+	// read_buffer 'write' should be ignored ^
+	if ( test_val != 0 ) xil_printf("ERROR. MAXreg_wr @ %d", __LINE__);
+	//...
 
-	/***READ***/
-//	WriteBuffer = NULL;
-	for ( i = 0; i < BUFFER_SIZE; i++ ) { ReadBuffer[i] = 0; }
-	Size = sizeof(return_val) / sizeof(BYTE);
-	spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-									0, 					// NULL
-									&ReadBuffer, 		// ARG
-									Size);				// ARG
-	return_val = ReadBuffer[0];
-
-	/***TEST***/
-	if ( spi_return_val != 0 )
-	{
-		xil_printf("MAXreg_rd Error. Line : %d", __LINE__);
-	}
+	/***DESELECT***/
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 0x0);			// CLEAR SLAVE STATUS
 
 	/***RETURN***/
-	return return_val;
+	return read_buffer;
 }
 
 
@@ -253,42 +195,29 @@ BYTE* MAXbytes_rd(BYTE reg, BYTE nbytes, BYTE* data) {
 	//return (data + nbytes);
 
 	/***INIT_VARS***/
-	u8 ReadBuffer[BUFFER_SIZE];
-	u8 WriteBuffer[BUFFER_SIZE];
-	uint Size;
-	u32 i;
-	int spi_return_val;
+	BYTE reg_buffer = reg;
+	BYTE read_buffer[nbytes];
+	int test_val;
+	int i;
+	//...
 
-	/**WRITE_REG**/
-//	ReadBuffer = NULL;
-	for ( i = 0; i < BUFFER_SIZE; i++ ) { WriteBuffer[i] = 0; }
+	/***SELECT***/
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 SLAVE_MASK);	// TODO: CONFIRM MASK??
+	/***WRITE_REG***/
+	XSpi_Transfer(&SpiInstance, &reg_buffer, &reg_buffer, sizeof(reg_buffer));
 
-	WriteBuffer[0] = (reg + 2);
-	Size = sizeof(reg) / sizeof(BYTE);
-	spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-									&WriteBuffer, 		// ARG
-									0, 					// NULL
-									Size);				// ARG
+	/***READ_VAL***/
+	for ( i = 0; i < nbytes; i++ ) { read_buffer[i] = 0; }
 
-	/**READ_DATA**/
-//	WriteBuffer = NULL;
-	for ( i = 0; i < BUFFER_SIZE; i++ ) { ReadBuffer[i] = 0; }
+	test_val = XSpi_Transfer(&SpiInstance, &read_buffer, &read_buffer, sizeof(read_buffer));
+	// read_buffer 'write' should be ignored ^
+	if ( test_val != 0 ) xil_printf("ERROR. MAXreg_wr @ %d", __LINE__);
+	//...
 
-	for ( i = 0; i < nbytes; i++ )
-	{
-		/*READ*/
-		Size = sizeof(data[i]) / sizeof(BYTE);
-		spi_return_val = XSpi_Transfer(&SpiInstance,		// STATIC
-										0, 					// NULL
-										&(data[i]), 		// ARG
-										Size);				// ARG
-
-		/*TEST*/
-		if ( spi_return_val != 0 )
-		{
-			xil_printf("MAXbytes_wr Error. Line : %d", __LINE__);
-		}
-	}
+	/***DESELECT***/
+	XSpi_SetSlaveSelect(&SpiInstance,	//
+						 0x0);			// CLEAR SLAVE STATUS
 
 	/***RETURN***/
 	return (data + nbytes);
@@ -305,7 +234,7 @@ void MAX3421E_reset(void) {
 	//hardware reset, then software reset
 	XGpio_DiscreteClear(&Gpio_rst, 1, 0x1);
 	xil_printf ("Holding USB in Reset\n");
-	for (int delay = 0; delay < 0x7FFFF; delay ++){}
+	for (int delay = 0; delay < 0x7FFF; delay ++){}
 	XGpio_DiscreteSet(&Gpio_rst, 1, 0x1);
 	xil_printf ("Revision is: %d, if this reads 0 check your MAXreg_rd \n", MAXreg_rd( rREVISION));
 	BYTE tmp = 0;

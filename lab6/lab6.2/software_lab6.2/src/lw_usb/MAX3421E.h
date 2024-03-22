@@ -6,6 +6,7 @@
 
 /* NOAH ECE385 LAB6.2 IMPLEMENTATION */
 #define   BUFFER_SIZE 	12
+#define   SLAVE_MASK	0x0
 
 /* SPI interface definitions	*/
 /* SSPSTAT REGISTER */
