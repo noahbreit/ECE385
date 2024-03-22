@@ -1,49 +1,49 @@
 {
    "ActiveEmotionalView":"Default View",
    "Default View_ScaleFactor":"1.5",
-   "Default View_TopLeft":"11,-381",
+   "Default View_TopLeft":"-289,-71",
    "ExpandedHierarchyInLayout":"",
    "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
 #  -string -flagsOSRD
-preplace port port-id_pix_clk -pg 1 -lvl 0 -x -100 -y -360 -defaultsOSRD
-preplace port port-id_pix_clkx5 -pg 1 -lvl 0 -x -100 -y -330 -defaultsOSRD
-preplace port port-id_pix_clk_locked -pg 1 -lvl 0 -x -100 -y -300 -defaultsOSRD
-preplace port port-id_rst -pg 1 -lvl 0 -x -100 -y -270 -defaultsOSRD
-preplace port port-id_hsync -pg 1 -lvl 0 -x -100 -y -150 -defaultsOSRD
-preplace port port-id_vsync -pg 1 -lvl 0 -x -100 -y -120 -defaultsOSRD
-preplace port port-id_vde -pg 1 -lvl 0 -x -100 -y -30 -defaultsOSRD
-preplace port port-id_ade -pg 1 -lvl 0 -x -100 -y 30 -defaultsOSRD
-preplace port port-id_TMDS_CLK_P -pg 1 -lvl 2 -x 370 -y -90 -defaultsOSRD
-preplace port port-id_TMDS_CLK_N -pg 1 -lvl 2 -x 370 -y -150 -defaultsOSRD
-preplace portBus red -pg 1 -lvl 0 -x -100 -y -240 -defaultsOSRD
-preplace portBus green -pg 1 -lvl 0 -x -100 -y -210 -defaultsOSRD
-preplace portBus blue -pg 1 -lvl 0 -x -100 -y -180 -defaultsOSRD
-preplace portBus aux0_din -pg 1 -lvl 0 -x -100 -y -90 -defaultsOSRD
-preplace portBus aux1_din -pg 1 -lvl 0 -x -100 -y -60 -defaultsOSRD
-preplace portBus aux2_din -pg 1 -lvl 0 -x -100 -y 0 -defaultsOSRD
-preplace portBus TMDS_DATA_N -pg 1 -lvl 2 -x 370 -y -120 -defaultsOSRD
-preplace portBus TMDS_DATA_P -pg 1 -lvl 2 -x 370 -y -60 -defaultsOSRD
-preplace inst hdmi_tx_0 -pg 1 -lvl 1 -x 180 -y -100 -defaultsOSRD
-preplace netloc pix_clk_1 1 0 1 30 -360n
-preplace netloc pix_clkx5_1 1 0 1 20 -330n
-preplace netloc pix_clk_locked_1 1 0 1 10 -300n
-preplace netloc rst_1 1 0 1 0 -270n
-preplace netloc red_1 1 0 1 -10 -240n
-preplace netloc green_1 1 0 1 -20 -210n
-preplace netloc blue_1 1 0 1 -30 -180n
-preplace netloc hsync_1 1 0 1 -40 -150n
-preplace netloc vsync_1 1 0 1 -50 -120n
-preplace netloc vde_1 1 0 1 -70 -50n
-preplace netloc aux0_din_1 1 0 1 -60 -90n
-preplace netloc aux1_din_1 1 0 1 -80 -60n
-preplace netloc aux2_din_1 1 0 1 -20 0n
-preplace netloc ade_1 1 0 1 N 30
-preplace netloc hdmi_tx_0_TMDS_CLK_P 1 1 1 330 -90n
-preplace netloc hdmi_tx_0_TMDS_CLK_N 1 1 1 330 -150n
-preplace netloc hdmi_tx_0_TMDS_DATA_N 1 1 1 340 -120n
-preplace netloc hdmi_tx_0_TMDS_DATA_P 1 1 1 N -60
-levelinfo -pg 1 -100 180 370
-pagesize -pg 1 -db -bbox -sgen -240 -380 550 300
+preplace port port-id_pix_clk -pg 1 -lvl 0 -x 0 -y 20 -defaultsOSRD
+preplace port port-id_pix_clkx5 -pg 1 -lvl 0 -x 0 -y 50 -defaultsOSRD
+preplace port port-id_pix_clk_locked -pg 1 -lvl 0 -x 0 -y 80 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x 0 -y 110 -defaultsOSRD
+preplace port port-id_hsync -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace port port-id_vsync -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port port-id_vde -pg 1 -lvl 0 -x 0 -y 290 -defaultsOSRD
+preplace port port-id_ade -pg 1 -lvl 0 -x 0 -y 410 -defaultsOSRD
+preplace port port-id_TMDS_CLK_P -pg 1 -lvl 2 -x 390 -y 230 -defaultsOSRD
+preplace port port-id_TMDS_CLK_N -pg 1 -lvl 2 -x 390 -y 170 -defaultsOSRD
+preplace portBus aux0_din -pg 1 -lvl 0 -x 0 -y 320 -defaultsOSRD
+preplace portBus aux1_din -pg 1 -lvl 0 -x 0 -y 350 -defaultsOSRD
+preplace portBus aux2_din -pg 1 -lvl 0 -x 0 -y 380 -defaultsOSRD
+preplace portBus TMDS_DATA_N -pg 1 -lvl 2 -x 390 -y 200 -defaultsOSRD
+preplace portBus TMDS_DATA_P -pg 1 -lvl 2 -x 390 -y 260 -defaultsOSRD
+preplace portBus red -pg 1 -lvl 0 -x 0 -y 140 -defaultsOSRD
+preplace portBus green -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace portBus blue -pg 1 -lvl 0 -x 0 -y 200 -defaultsOSRD
+preplace inst hdmi_tx_0 -pg 1 -lvl 1 -x 220 -y 210 -defaultsOSRD
+preplace netloc ade_1 1 0 1 70J 340n
+preplace netloc aux0_din_1 1 0 1 40J 280n
+preplace netloc aux1_din_1 1 0 1 50J 300n
+preplace netloc aux2_din_1 1 0 1 60J 320n
+preplace netloc hdmi_tx_0_TMDS_CLK_N 1 1 1 370J 170n
+preplace netloc hdmi_tx_0_TMDS_CLK_P 1 1 1 NJ 230
+preplace netloc hdmi_tx_0_TMDS_DATA_N 1 1 1 370J 200n
+preplace netloc hdmi_tx_0_TMDS_DATA_P 1 1 1 370J 250n
+preplace netloc hsync_1 1 0 1 40J 220n
+preplace netloc pix_clk_1 1 0 1 60J 20n
+preplace netloc pix_clk_locked_1 1 0 1 40J 80n
+preplace netloc pix_clkx5_1 1 0 1 50J 50n
+preplace netloc rst_1 1 0 1 30J 110n
+preplace netloc vde_1 1 0 1 30J 260n
+preplace netloc vsync_1 1 0 1 20J 240n
+preplace netloc red_1 1 0 1 20J 140n
+preplace netloc green_1 1 0 1 40J 170n
+preplace netloc blue_1 1 0 1 NJ 200
+levelinfo -pg 1 0 220 390
+pagesize -pg 1 -db -bbox -sgen -140 0 570 430
 "
 }
-
+0

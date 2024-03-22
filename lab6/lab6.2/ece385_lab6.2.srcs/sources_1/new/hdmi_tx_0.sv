@@ -21,9 +21,9 @@
 
 
 module hdmi_tx_0(
-    input logic [7:0] red,
-    input logic [7:0] green,
-    input logic [7:0] blue,
+    input logic [3:0] red,
+    input logic [3:0] green,
+    input logic [3:0] blue,
     input logic [3:0] aux0_din,
     input logic [3:0] aux1_din,
     input logic [3:0] aux2_din,

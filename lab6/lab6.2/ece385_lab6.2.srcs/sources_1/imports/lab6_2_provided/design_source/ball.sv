@@ -51,12 +51,12 @@ module  ball
 
     //*********************Y-MOTION*****************************//
         //modify to control ball motion with the keycode
-        if (keycode == 8'h1A)                    // KEYCODE #26 or 'W'
+        if (keycode == 8'h16)                   //keycode   #22 or 'S'
         begin
             Ball_Y_Motion_next = Ball_Y_Step;
             Ball_X_Motion_next = 0; 
         end 
-        else if(keycode == 8'h16)               //keycode   #22 or 'S'
+        else if(keycode == 8'h1A)               // KEYCODE #26 or 'W'
         begin 
             Ball_Y_Motion_next = (~ (Ball_Y_Step) + 1'b1);
             Ball_X_Motion_next = 0;

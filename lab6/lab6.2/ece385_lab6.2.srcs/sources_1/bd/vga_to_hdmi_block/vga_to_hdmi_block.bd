@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x5F75650393CEC6A",
+      "boundary_crc": "0x612103CE7A5FE1A3",
       "device": "xc7s50csga324-1",
       "gen_directory": "../../../../ece385_lab6.2.gen/sources_1/bd/vga_to_hdmi_block",
       "name": "vga_to_hdmi_block",
@@ -80,21 +80,6 @@
             "value_src": "default"
           }
         }
-      },
-      "red": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
-      },
-      "green": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
-      },
-      "blue": {
-        "direction": "I",
-        "left": "7",
-        "right": "0"
       },
       "hsync": {
         "direction": "I"
@@ -176,6 +161,21 @@
         "direction": "O",
         "left": "2",
         "right": "0"
+      },
+      "red": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "green": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
+      },
+      "blue": {
+        "direction": "I",
+        "left": "3",
+        "right": "0"
       }
     },
     "components": {
@@ -185,6 +185,15 @@
         "xci_path": "ip\\vga_to_hdmi_block_hdmi_tx_0_0\\vga_to_hdmi_block_hdmi_tx_0_0.xci",
         "inst_hier_path": "hdmi_tx_0",
         "parameters": {
+          "C_BLUE_WIDTH": {
+            "value": "4"
+          },
+          "C_GREEN_WIDTH": {
+            "value": "4"
+          },
+          "C_RED_WIDTH": {
+            "value": "4"
+          },
           "MODE": {
             "value": "HDMI"
           }
