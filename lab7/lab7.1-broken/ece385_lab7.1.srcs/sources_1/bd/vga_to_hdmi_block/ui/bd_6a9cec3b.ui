@@ -1,0 +1,51 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.5",
+   "Default View_TopLeft":"-218,-72",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_pix_clk -pg 1 -lvl 0 -x -80 -y 20 -defaultsOSRD
+preplace port port-id_pix_clkx5 -pg 1 -lvl 0 -x -80 -y 50 -defaultsOSRD
+preplace port port-id_pix_clk_locked -pg 1 -lvl 0 -x -80 -y 80 -defaultsOSRD
+preplace port port-id_rst -pg 1 -lvl 0 -x -80 -y 110 -defaultsOSRD
+preplace port port-id_hsync -pg 1 -lvl 0 -x -80 -y 230 -defaultsOSRD
+preplace port port-id_vsync -pg 1 -lvl 0 -x -80 -y 260 -defaultsOSRD
+preplace port port-id_vde -pg 1 -lvl 0 -x -80 -y 290 -defaultsOSRD
+preplace port port-id_ade -pg 1 -lvl 0 -x -80 -y 410 -defaultsOSRD
+preplace port port-id_TMDS_CLK_P -pg 1 -lvl 2 -x 320 -y 230 -defaultsOSRD
+preplace port port-id_TMDS_CLK_N -pg 1 -lvl 2 -x 320 -y 170 -defaultsOSRD
+preplace portBus aux0_din -pg 1 -lvl 0 -x -80 -y 320 -defaultsOSRD
+preplace portBus aux1_din -pg 1 -lvl 0 -x -80 -y 350 -defaultsOSRD
+preplace portBus aux2_din -pg 1 -lvl 0 -x -80 -y 380 -defaultsOSRD
+preplace portBus TMDS_DATA_N -pg 1 -lvl 2 -x 320 -y 200 -defaultsOSRD
+preplace portBus TMDS_DATA_P -pg 1 -lvl 2 -x 320 -y 260 -defaultsOSRD
+preplace portBus red -pg 1 -lvl 0 -x -80 -y 140 -defaultsOSRD
+preplace portBus green -pg 1 -lvl 0 -x -80 -y 170 -defaultsOSRD
+preplace portBus blue -pg 1 -lvl 0 -x -80 -y 200 -defaultsOSRD
+preplace inst hdmi_tx_0 -pg 1 -lvl 1 -x 140 -y 220 -defaultsOSRD
+preplace netloc pix_clk_1 1 0 1 -10 20n
+preplace netloc pix_clkx5_1 1 0 1 -20 50n
+preplace netloc pix_clk_locked_1 1 0 1 -30 80n
+preplace netloc rst_1 1 0 1 -40 110n
+preplace netloc red_1 1 0 1 -50 140n
+preplace netloc green_1 1 0 1 -60 170n
+preplace netloc blue_1 1 0 1 -30 200n
+preplace netloc hsync_1 1 0 1 N 230
+preplace netloc vsync_1 1 0 1 -40 250n
+preplace netloc vde_1 1 0 1 -60 270n
+preplace netloc aux0_din_1 1 0 1 -50 290n
+preplace netloc aux1_din_1 1 0 1 -40 310n
+preplace netloc aux2_din_1 1 0 1 -20 330n
+preplace netloc ade_1 1 0 1 -10 350n
+preplace netloc hdmi_tx_0_TMDS_DATA_P 1 1 1 N 260
+preplace netloc hdmi_tx_0_TMDS_CLK_P 1 1 1 290 230n
+preplace netloc hdmi_tx_0_TMDS_DATA_N 1 1 1 300 200n
+preplace netloc hdmi_tx_0_TMDS_CLK_N 1 1 1 290 170n
+levelinfo -pg 1 -80 140 320
+pagesize -pg 1 -db -bbox -sgen -220 -240 500 430
+"
+}
+{
+   "da_clkrst_cnt":"2"
+}
