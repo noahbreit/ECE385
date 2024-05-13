@@ -1,0 +1,22 @@
+timestamp=[2024-05-03 04:17:54], mode=WORKBENCH_START, duration=0:00:05.492, duration_ms=5492, data={}
+timestamp=[2024-05-03 04:17:55], mode=WORKBENCH_UI_INIT, duration=0:00:00.448, duration_ms=448, data={editors_count=0, platform_editors_count=0, projects_count=0, platform_projects_count=0, active_platform_editor=false, projects=}
+timestamp=[2024-05-03 04:17:57], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.448, duration_ms=1448, data={}
+timestamp=[2024-05-03 04:20:49], mode=APP_CREATION, duration=0:00:06.940, duration_ms=6940, data={name=two_screen_ddr3_USB, project_type=sdk, os=standalone, processor=microblaze, runtime=cpp, platform=mb_two_pmod_bridge_usb_ddr3, application_type=application}
+timestamp=[2024-05-03 04:24:33], mode=PLATFORM_GENERATION, duration=0:00:07.768, duration_ms=7768, data={name=mb_two_pmod_bridge_usb_ddr3}
+timestamp=[2024-05-03 04:25:13], mode=PLATFORM_GENERATION, duration=0:00:04.062, duration_ms=4062, data={name=mb_two_pmod_bridge_usb_ddr3}
+timestamp=[2024-05-03 04:25:21], mode=PLATFORM_GENERATION, duration=0:00:07.806, duration_ms=7806, data={name=mb_two_pmod_bridge_usb_ddr3}
+timestamp=[2024-05-03 04:25:25], mode=BUILD, duration=0:00:03.912, duration_ms=3912, data={name=two_screen_ddr3_USB, configuration=Debug, clean_build=false}
+timestamp=[2024-05-03 04:25:26], mode=BUILD, duration=0:00:00.145, duration_ms=145, data={name=two_screen_ddr3_USB_system, configuration=Debug, clean_build=false}
+timestamp=[2024-05-03 10:07:44], mode=BUILD, duration=0:00:00.342, duration_ms=342, data={name=two_screen_ddr3_USB, configuration=Debug, clean_build=false}
+timestamp=[2024-05-03 15:41:14], mode=WORKBENCH_START, duration=0:00:19.766, duration_ms=19766, data={}
+timestamp=[2024-05-03 15:41:18], mode=WORKBENCH_UI_INIT, duration=0:00:04.427, duration_ms=4427, data={editors_count=2, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,mb_two_pmod_bridge_usb_ddr3,two_screen_ddr3_USB,two_screen_ddr3_USB_system}
+timestamp=[2024-05-03 15:41:25], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:05.364, duration_ms=5364, data={}
+timestamp=[2024-05-03 15:46:57], mode=WORKBENCH_START, duration=0:00:16.493, duration_ms=16493, data={}
+timestamp=[2024-05-03 15:46:59], mode=WORKBENCH_UI_INIT, duration=0:00:01.672, duration_ms=1672, data={editors_count=3, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,mb_two_pmod_bridge_usb_ddr3,two_screen_ddr3_USB,two_screen_ddr3_USB_system}
+timestamp=[2024-05-03 15:47:03], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:03.556, duration_ms=3556, data={}
+timestamp=[2024-05-07 21:43:33], mode=WORKBENCH_START, duration=0:00:07.725, duration_ms=7725, data={}
+timestamp=[2024-05-07 21:43:34], mode=WORKBENCH_UI_INIT, duration=0:00:01.007, duration_ms=1007, data={editors_count=4, platform_editors_count=0, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,mb_two_pmod_bridge_usb_ddr3,two_screen_ddr3_USB,two_screen_ddr3_USB_system}
+timestamp=[2024-05-07 21:43:36], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:01.653, duration_ms=1653, data={}
+timestamp=[2024-05-12 21:45:57], mode=WORKBENCH_START, duration=0:00:14.377, duration_ms=14377, data={}
+timestamp=[2024-05-12 21:45:59], mode=WORKBENCH_UI_INIT, duration=0:00:02.506, duration_ms=2506, data={editors_count=7, platform_editors_count=1, projects_count=4, platform_projects_count=1, active_platform_editor=false, projects=RemoteSystemsTempFiles,mb_two_pmod_bridge_usb_ddr3,two_screen_ddr3_USB,two_screen_ddr3_USB_system}
+timestamp=[2024-05-12 21:46:02], mode=PLATFORM_REPOSITORY_INIT, duration=0:00:03.548, duration_ms=3548, data={}

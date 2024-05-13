@@ -1,0 +1,199 @@
+04:17:53 DEBUG : Logs will be stored at 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/IDE.log'.
+04:17:56 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Wildh\Documents\GitHub\ECE385\FP_USB_DDR3_two_screen\temp_xsdb_launch_script.tcl
+04:17:56 INFO  : Registering command handlers for Vitis TCF services
+04:17:57 INFO  : Platform repository initialization has completed.
+04:17:59 INFO  : XSCT server has started successfully.
+04:17:59 INFO  : plnx-install-location is set to ''
+04:17:59 INFO  : Successfully done setting XSCT server connection channel  
+04:17:59 INFO  : Successfully done query RDI_DATADIR 
+04:17:59 INFO  : Successfully done setting workspace for the tool. 
+04:20:45 INFO  : Result from executing command 'getProjects': mb_two_pmod_bridge_usb_ddr3
+04:20:45 INFO  : Result from executing command 'getPlatforms': xilinx_vck190_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vck190_base_202220_1/xilinx_vck190_base_202220_1.xpfm;xilinx_vck190_base_dfx_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vck190_base_dfx_202220_1/xilinx_vck190_base_dfx_202220_1.xpfm;xilinx_vmk180_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vmk180_base_202220_1/xilinx_vmk180_base_202220_1.xpfm;xilinx_zcu102_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+04:20:46 WARN  : An unexpected exception occurred in the module 'platform project logging'
+04:20:47 INFO  : Platform 'mb_two_pmod_bridge_usb_ddr3' is added to custom repositories.
+04:20:50 INFO  : Platform 'mb_two_pmod_bridge_usb_ddr3' is added to custom repositories.
+04:24:32 INFO  : Result from executing command 'getProjects': mb_two_pmod_bridge_usb_ddr3
+04:24:32 INFO  : Result from executing command 'getPlatforms': mb_two_pmod_bridge_usb_ddr3|C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/mb_two_pmod_bridge_usb_ddr3.xpfm;xilinx_vck190_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vck190_base_202220_1/xilinx_vck190_base_202220_1.xpfm;xilinx_vck190_base_dfx_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vck190_base_dfx_202220_1/xilinx_vck190_base_dfx_202220_1.xpfm;xilinx_vmk180_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vmk180_base_202220_1/xilinx_vmk180_base_202220_1.xpfm;xilinx_zcu102_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+04:25:12 INFO  : Result from executing command 'removePlatformRepo': 
+04:25:20 INFO  : Result from executing command 'getProjects': mb_two_pmod_bridge_usb_ddr3
+04:25:20 INFO  : Result from executing command 'getPlatforms': xilinx_vck190_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vck190_base_202220_1/xilinx_vck190_base_202220_1.xpfm;xilinx_vck190_base_dfx_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vck190_base_dfx_202220_1/xilinx_vck190_base_dfx_202220_1.xpfm;xilinx_vmk180_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_vmk180_base_202220_1/xilinx_vmk180_base_202220_1.xpfm;xilinx_zcu102_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu102_base_202220_1/xilinx_zcu102_base_202220_1.xpfm;xilinx_zcu102_base_dfx_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu102_base_dfx_202220_1/xilinx_zcu102_base_dfx_202220_1.xpfm;xilinx_zcu104_base_202220_1|C:/Xilinx/Vitis/2022.2/base_platforms/xilinx_zcu104_base_202220_1/xilinx_zcu104_base_202220_1.xpfm
+04:25:21 INFO  : Checking for BSP changes to sync application flags for project 'two_screen_ddr3_USB'...
+04:25:33 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+04:25:34 INFO  : Jtag cable 'RealDigital Boo 88742923015AA' is selected.
+04:25:34 INFO  : 'jtag frequency' command is executed.
+04:25:34 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+04:25:35 INFO  : Device configured successfully with "C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit"
+04:25:35 INFO  : Context for processor 'microblaze_0' is selected.
+04:25:35 INFO  : Hardware design and registers information is loaded from 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa'.
+04:25:35 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+04:25:35 INFO  : Context for processor 'microblaze_0' is selected.
+04:25:35 INFO  : System reset is completed.
+04:25:38 INFO  : 'after 3000' command is executed.
+04:25:38 INFO  : Context for processor 'microblaze_0' is selected.
+04:25:39 INFO  : The application 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf' is downloaded to processor 'microblaze_0'.
+04:25:39 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf
+----------------End of Script----------------
+
+04:25:39 INFO  : Context for processor 'microblaze_0' is selected.
+04:25:39 INFO  : 'con' command is executed.
+04:25:39 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+04:25:39 INFO  : Disconnected from the channel tcfchan#4.
+10:07:43 INFO  : Checking for BSP changes to sync application flags for project 'two_screen_ddr3_USB'...
+10:08:35 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:08:35 INFO  : Jtag cable 'RealDigital Boo 88742923015AA' is selected.
+10:08:35 INFO  : 'jtag frequency' command is executed.
+10:08:35 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+10:08:36 INFO  : Device configured successfully with "C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit"
+10:08:36 INFO  : Context for processor 'microblaze_0' is selected.
+10:08:36 INFO  : Hardware design and registers information is loaded from 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa'.
+10:08:36 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:08:36 INFO  : Context for processor 'microblaze_0' is selected.
+10:08:36 INFO  : System reset is completed.
+10:08:39 INFO  : 'after 3000' command is executed.
+10:08:39 INFO  : Context for processor 'microblaze_0' is selected.
+10:08:40 INFO  : The application 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf' is downloaded to processor 'microblaze_0'.
+10:08:40 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf
+----------------End of Script----------------
+
+10:08:40 INFO  : Context for processor 'microblaze_0' is selected.
+10:08:40 INFO  : 'con' command is executed.
+10:08:40 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+10:08:40 INFO  : Disconnected from the channel tcfchan#5.
+10:11:14 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:11:15 INFO  : Jtag cable 'RealDigital Boo 88742923015AA' is selected.
+10:11:15 INFO  : 'jtag frequency' command is executed.
+10:11:15 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+10:11:16 INFO  : Device configured successfully with "C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit"
+10:11:16 INFO  : Context for processor 'microblaze_0' is selected.
+10:11:16 INFO  : Hardware design and registers information is loaded from 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa'.
+10:11:16 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:11:16 INFO  : Context for processor 'microblaze_0' is selected.
+10:11:16 INFO  : System reset is completed.
+10:11:19 INFO  : 'after 3000' command is executed.
+10:11:19 INFO  : Context for processor 'microblaze_0' is selected.
+10:11:20 INFO  : The application 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf' is downloaded to processor 'microblaze_0'.
+10:11:20 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf
+----------------End of Script----------------
+
+10:11:20 INFO  : Context for processor 'microblaze_0' is selected.
+10:11:20 INFO  : 'con' command is executed.
+10:11:20 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+10:11:20 INFO  : Disconnected from the channel tcfchan#6.
+10:20:51 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+10:20:52 INFO  : Jtag cable 'RealDigital Boo 88742923015AA' is selected.
+10:20:52 INFO  : 'jtag frequency' command is executed.
+10:20:52 INFO  : 'targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}' command is executed.
+10:20:53 INFO  : Device configured successfully with "C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit"
+10:20:53 INFO  : Context for processor 'microblaze_0' is selected.
+10:20:53 INFO  : Hardware design and registers information is loaded from 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa'.
+10:20:53 INFO  : 'configparams mdm-detect-bscan-mask 2' command is executed.
+10:20:53 INFO  : Context for processor 'microblaze_0' is selected.
+10:20:53 INFO  : System reset is completed.
+10:20:56 INFO  : 'after 3000' command is executed.
+10:20:56 INFO  : Context for processor 'microblaze_0' is selected.
+10:20:57 INFO  : The application 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf' is downloaded to processor 'microblaze_0'.
+10:20:57 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -filter {jtag_cable_name =~ "RealDigital Boo 88742923015AA" && level==0 && jtag_device_ctx=="jsn1-0362f093-0"}
+fpga -file C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/_ide/bitstream/mb_two_pmod_bridge_usb_ddr3.bit
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+loadhw -hw C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/hw/mb_two_pmod_bridge_usb_ddr3.xsa -regs
+configparams mdm-detect-bscan-mask 2
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+rst -system
+after 3000
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+dow C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/two_screen_ddr3_USB/Debug/two_screen_ddr3_USB.elf
+----------------End of Script----------------
+
+10:20:57 INFO  : Context for processor 'microblaze_0' is selected.
+10:20:57 INFO  : 'con' command is executed.
+10:20:57 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*microblaze*#0" && bscan=="USER2" }
+con
+----------------End of Script----------------
+
+10:20:57 INFO  : Disconnected from the channel tcfchan#7.
+15:41:05 DEBUG : Logs will be stored at 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/IDE.log'.
+15:41:07 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Wildh\Documents\GitHub\ECE385\FP_USB_DDR3_two_screen\temp_xsdb_launch_script.tcl
+15:41:21 INFO  : Registering command handlers for Vitis TCF services
+15:41:22 INFO  : XSCT server has started successfully.
+15:41:23 INFO  : plnx-install-location is set to ''
+15:41:25 INFO  : Platform repository initialization has completed.
+15:41:37 INFO  : Successfully done setting XSCT server connection channel  
+15:41:37 INFO  : Successfully done query RDI_DATADIR 
+15:41:37 INFO  : Successfully done setting workspace for the tool. 
+15:44:14 INFO  : Projects exported to 'C:\Users\Wildh\Desktop\ECE385_Final_Project_taojung2_nhbreit.ide.zip'
+15:46:50 DEBUG : Logs will be stored at 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/IDE.log'.
+15:46:52 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Wildh\Documents\GitHub\ECE385\FP_USB_DDR3_two_screen\temp_xsdb_launch_script.tcl
+15:46:58 INFO  : XSCT server has started successfully.
+15:46:58 INFO  : plnx-install-location is set to ''
+15:46:58 INFO  : Successfully done setting XSCT server connection channel  
+15:46:58 INFO  : Successfully done setting workspace for the tool. 
+15:47:00 INFO  : Successfully done query RDI_DATADIR 
+15:47:00 INFO  : Registering command handlers for Vitis TCF services
+15:47:03 INFO  : Platform repository initialization has completed.
+15:48:52 INFO  : Projects exported to 'C:\Users\Wildh\Desktop\ECE385_Final_Project_CODE_taojung2_nhbreit.ide.zip'
+21:43:30 DEBUG : Logs will be stored at 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/IDE.log'.
+21:43:31 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Wildh\Documents\GitHub\ECE385\FP_USB_DDR3_two_screen\temp_xsdb_launch_script.tcl
+21:43:35 INFO  : Registering command handlers for Vitis TCF services
+21:43:36 INFO  : XSCT server has started successfully.
+21:43:36 INFO  : plnx-install-location is set to ''
+21:43:36 INFO  : Successfully done setting XSCT server connection channel  
+21:43:36 INFO  : Platform repository initialization has completed.
+21:43:40 INFO  : Successfully done setting workspace for the tool. 
+21:43:40 INFO  : Successfully done query RDI_DATADIR 
+21:45:49 DEBUG : Logs will be stored at 'C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/IDE.log'.
+21:45:50 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Wildh\Documents\GitHub\ECE385\FP_USB_DDR3_two_screen\temp_xsdb_launch_script.tcl
+21:45:59 INFO  : XSCT server has started successfully.
+21:46:00 INFO  : Registering command handlers for Vitis TCF services
+21:46:02 INFO  : Platform repository initialization has completed.
+21:46:08 INFO  : plnx-install-location is set to ''
+21:46:08 INFO  : Successfully done setting XSCT server connection channel  
+21:46:08 INFO  : Successfully done query RDI_DATADIR 
+21:46:08 INFO  : Successfully done setting workspace for the tool. 

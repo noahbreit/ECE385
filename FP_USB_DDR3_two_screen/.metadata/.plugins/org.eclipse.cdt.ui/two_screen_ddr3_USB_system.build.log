@@ -1,0 +1,6 @@
+04:25:26 **** Build of configuration Debug for project two_screen_ddr3_USB_system ****
+make all 
+Skipping SD card image generation. Reason: "The system project only has applications for microblaze processors."
+
+04:25:26 Build Finished (took 129ms)
+

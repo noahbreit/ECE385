@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<systemproject:SystemProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" xmlns:systemproject="http://www.xilinx.com/systemproject" name="two_screen_ddr3_USB_system" platform="C:/Users/Wildh/Documents/GitHub/ECE385/FP_USB_DDR3_two_screen/mb_two_pmod_bridge_usb_ddr3/export/mb_two_pmod_bridge_usb_ddr3/mb_two_pmod_bridge_usb_ddr3.xpfm" platformUID="xilinx:::0.0(custom)" sysConfig="mb_two_pmod_bridge_usb_ddr3" runtime="cpp" rootFSLocation="" linuxImage="" sysroot="">
+  <configuration name="Debug" id="com.xilinx.sdx.system.managedbuilder.debugConfiguration.1188649816">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="two_screen_ddr3_USB" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Debug"/>
+      <options xsi:type="sdkproject:SdkOptions" generateSdCard="true"/>
+    </configBuildOptions>
+    <lastBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="two_screen_ddr3_USB" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Debug"/>
+      <options xsi:type="sdkproject:SdkOptions" generateSdCard="true"/>
+    </lastBuildOptions>
+  </configuration>
+  <configuration name="Release" id="com.xilinx.sdx.system.managedbuilder.releaseConfiguration.1229186297">
+    <configBuildOptions xsi:type="systemproject:SystemOptions">
+      <applications name="two_screen_ddr3_USB" domainName="standalone_microblaze_0" domainPrettyName="standalone_microblaze_0" appBuildConfig="Release"/>
+      <options xsi:type="sdkproject:SdkOptions" generateSdCard="true"/>
+    </configBuildOptions>
+  </configuration>
+</systemproject:SystemProject>

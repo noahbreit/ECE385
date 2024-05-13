@@ -1,0 +1,5 @@
+Nothing to build in platform 'mb_two_pmod_bridge_usb_ddr3'
+
+10:07:43 **** Incremental Build of configuration Debug for project two_screen_ddr3_USB ****
+make all 
+make: Nothing to be done for 'all'.
